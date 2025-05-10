@@ -24,7 +24,7 @@ The steps for the synthesis which helps us to find the flop ratio is as follows:
 Step 1: Open the openLane directory
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/a602e752-3671-4e50-bde4-59ac65aee88b" />
 
-Step 2 : use **docker** command which is used to run the OpenLane toolchain inside a Docker container, which provides a pre-configured environment with all dependencies, tools (like Yosys, Magic, KLayout, OpenROAD, etc.), and paths correctly set up.
+Step 2 : use **"docker"** command which is used to run the OpenLane toolchain inside a Docker container, which provides a pre-configured environment with all dependencies, tools (like Yosys, Magic, KLayout, OpenROAD, etc.), and paths correctly set up.
 
 Step 3: **./flow.tcl -interactive** command is used to launch OpenLane in interactive mode inside the Docker container.
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/f6c1e9c2-b933-4341-9442-c168d2f8b8b1" />
