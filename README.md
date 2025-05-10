@@ -26,15 +26,15 @@ Step 1: Open the openLane directory
 
 Step 2 : use **"docker"** command which is used to run the OpenLane toolchain inside a Docker container, which provides a pre-configured environment with all dependencies, tools (like Yosys, Magic, KLayout, OpenROAD, etc.), and paths correctly set up.
 
-Step 3: **./flow.tcl -interactive** command is used to launch OpenLane in interactive mode inside the Docker container.
+Step 3: **"./flow.tcl -interactive"** command is used to launch OpenLane in interactive mode inside the Docker container.
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/f6c1e9c2-b933-4341-9442-c168d2f8b8b1" />
 
-Step 4: Enter command **package require openlane 0.9** it load the openLane package of version 0.9.
+Step 4: Enter command **"package require openlane 0.9"** it load the openLane package of version 0.9.
 
-Step 5: Enter the command **prep -design picorv32a** is used in OpenLane's interactive mode to prepare the design environment for the flow.
+Step 5: Enter the command **"prep -design picorv32a"** is used in OpenLane's interactive mode to prepare the design environment for the flow.
         This step mereges the .lef files 
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/d9eae49b-ccb1-4c1b-acf7-21ee202a8dd2" />   
-         We can see the merged lef file in the directory shown in below image and .lef can be accessed by the command **less merged.lef** in the terminal
+         We can see the merged lef file in the directory shown in below image and .lef can be accessed by the command **"less merged.lef"** in the terminal
         <img width="960" alt="image" src="https://github.com/user-attachments/assets/3073b8a0-70e4-4d95-9470-6fcedc6fba0e" />
 
 
