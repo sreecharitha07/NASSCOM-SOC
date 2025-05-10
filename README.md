@@ -36,6 +36,7 @@ Step 4: Enter command **"package require openlane 0.9"** it load the openLane pa
 
 Step 5: Enter the command **"prep -design picorv32a"** is used in OpenLane's interactive mode to prepare the design environment for the flow.
         This step mereges the .lef files 
+        
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/d9eae49b-ccb1-4c1b-acf7-21ee202a8dd2" />   
          We can see the merged lef file in the directory shown in below image and .lef can be accessed by the command **"less merged.lef"** in the terminal
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/3073b8a0-70e4-4d95-9470-6fcedc6fba0e" />
@@ -43,7 +44,7 @@ Step 5: Enter the command **"prep -design picorv32a"** is used in OpenLane's int
 Step 6: Enter the command **"run_synthesis"** to start the synthesis of the design and the below is tha image of successful synthesis.
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/00b999a0-6cdd-40ac-9c1a-1d4fc48b3ded" />          
         We can see the synthesized verilog file in the below directory,the verilog file contains the logic of our design.
-        <img width="960" alt="image" src="https://github.com/user-attachments/assets/b36def51-dcee-4e71-b0bf-57c63eedc96b" />
+<img width="960" alt="image" src="https://github.com/user-attachments/assets/b36def51-dcee-4e71-b0bf-57c63eedc96b" />
 
         
 
