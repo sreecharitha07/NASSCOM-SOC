@@ -38,7 +38,7 @@ Step 5: Enter the command **"prep -design picorv32a"** is used in OpenLane's int
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/3073b8a0-70e4-4d95-9470-6fcedc6fba0e" />
 
 Step 6: Enter the command **"run_synthesis"** to start the synthesis of the design and the below is tha image of successful synthesis.
-<img width="960" alt="image" src="https://github.com/user-attachments/assets/00b999a0-6cdd-40ac-9c1a-1d4fc48b3ded" />
+<img width="960" alt="image" src="https://github.com/user-attachments/assets/00b999a0-6cdd-40ac-9c1a-1d4fc48b3ded" />          
         We can see the synthesized verilog file in the below directory,the verilog file contains the logic of our design.
         <img width="960" alt="image" src="https://github.com/user-attachments/assets/b36def51-dcee-4e71-b0bf-57c63eedc96b" />
 
