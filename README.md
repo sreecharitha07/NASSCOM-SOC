@@ -16,6 +16,8 @@ Below is the screenshot showing the system specifications of the Ubuntu virtual 
 ## **DAY 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK**
 
 ### Introduction
+Day-1.pdf
+
 
 
 
