@@ -34,7 +34,7 @@ Step 4: Enter command **package require openlane 0.9** it load the openLane pack
 Step 5: Enter the command **prep -design picorv32a** is used in OpenLane's interactive mode to prepare the design environment for the flow.
         This step mereges the .lef files 
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/d9eae49b-ccb1-4c1b-acf7-21ee202a8dd2" />   
-        \n We can see the merged lef file in the directory shown in below image and .lef can be accessed by the command **less merged.lef** in the terminal
+         We can see the merged lef file in the directory shown in below image and .lef can be accessed by the command **less merged.lef** in the terminal
         <img width="960" alt="image" src="https://github.com/user-attachments/assets/3073b8a0-70e4-4d95-9470-6fcedc6fba0e" />
 
 
