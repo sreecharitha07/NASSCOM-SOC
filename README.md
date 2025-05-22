@@ -1,4 +1,4 @@
-# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
+![image](https://github.com/user-attachments/assets/6e378c58-3259-4d6f-a89b-00743f150a62)# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
 
@@ -198,7 +198,7 @@ Step 3: To calculate the area of the die.
    `Die Area = 443587.212425`
 
 
-### **Task - 3: To verify the horizontal and vertical paths in Magic**
+### Task - 3: To verify the horizontal and vertical paths in Magic
 
 Step 1: Open magic tool in the below directory and enter the below flow
 
@@ -249,11 +249,120 @@ The Zoomedin Version gives us the idea about how the standard cells are placed i
 [📄 Day-1.pdf](Day-1.pdf)
 
 ### LAB TASKS
-We make use of Custom Inverter. Steps to clone the custom Inverter are:
+
+### Task - 1: To make use of Custom Inverter into our design.
+
+**The Steps to clone the custom Inverter are:**
+
 Step 1: Go to the github clone link `https://github.com/nickson-jose/vsdstdcelldesign.git`
-Step 2: Enter this link in the openlane directory as follows and vstdcell has the custom inverter layout
+
+Step 2: Enter this link in the openlane directory as follows and vsdscelldesign has the custom inverter layout
 
 ![image](https://github.com/user-attachments/assets/57f9c3bb-c972-45f6-aa60-a13da2f9283d)
+
+Step 3: We need sky130A tech file in the vsdscelldesign folder so we copy it.
+
+![image](https://github.com/user-attachments/assets/7f28aaa0-6692-4cd2-879d-737f38a67e03)
+
+The copied file in the vsdscelldesign folder
+
+![image](https://github.com/user-attachments/assets/7c58661a-d64c-4f63-aa51-854bf01e4b52)
+
+Step 3: Generate the layout of the inverter. Open magic in vsdscelldesign folder 
+
+![image](https://github.com/user-attachments/assets/53f0cead-0ae1-44a9-ac28-c5b93383c33d)
+
+  Layout
+
+![image](https://github.com/user-attachments/assets/e6d432d1-67a3-4182-bac5-6cf608d8140b)
+
+  To know about any component use the tkcon window and the command `what` by selecting that particular component in the layout as seen below:
+
+![image](https://github.com/user-attachments/assets/c1c6e552-c76a-4d0c-96e7-1d27c85474de)
+
+  To see if a component is connected clicl 'S' thrice.
+
+![image](https://github.com/user-attachments/assets/20614f1e-9565-44f8-9cf4-02e737b32ef2)
+
+
+### Task - 2: To extract the spice netlist.
+
+**The Steps to extract spice netlist are:**
+
+Step 1: Enter the command `extract all` in the tckon window of the inverter layout.
+
+![image](https://github.com/user-attachments/assets/7b71f457-7661-4571-93a2-4b003791c0c3)
+
+We can see the extracted inv file in the vsdstdcell design folder
+
+![image](https://github.com/user-attachments/assets/ac31c6ce-730b-4780-8d81-3f722c542f27)
+
+Step 2: Enter the command `ext2spice cthresh 0 rthresh 0` to convert the extracted filee to spice netlist.We can also see the spice in the folder
+
+![image](https://github.com/user-attachments/assets/eb9ad189-9b81-421d-89f1-f3ce025f1e65)
+
+Step 3: Open the spice netlist using vim to edit
+
+Before change
+
+![image](https://github.com/user-attachments/assets/db8300bd-0380-433a-b500-e8f0a75962af)
+
+ 1. To include the .lib files of nmos and pmos in the spice netlist.
+
+![image](https://github.com/user-attachments/assets/a53b20e3-6490-440f-b231-7ca103017739)
+
+2. To make sure we have correct dimensions of the grid , we run a transient analysis and the values VDD , VSS , Va(Input) is given
+   
+   The Inv Model
+   <img width="448" alt="image" src="https://github.com/user-attachments/assets/9b37e0bb-7455-4c49-af3a-ed13457abb67" />
+   
+   After all the changes we have the below spice netlist.
+   
+   ![image](https://github.com/user-attachments/assets/6e4b5e4b-0abb-46d5-bac7-568663b5338e)
+
+
+### Task - 3: Ngspice Simulation and characterization of inverter.
+
+**Steps to generate the ngspice simulation to calculate the delays:**
+
+Step 1: Enter the command `ngspice sky130_inv.spice` to run the ngspice simulation
+
+![image](https://github.com/user-attachments/assets/02c3e537-0bf3-41f9-be88-fdcb67a0d6df)
+
+Step 2: Plot the graph using command `plot y vs time a` -> plot output vs time input.
+
+![image](https://github.com/user-attachments/assets/dfd7af44-c46f-4746-b866-ba808d156659)
+
+![image](https://github.com/user-attachments/assets/718bc093-5e65-4b82-bf54-5b8beba2f2b0)
+
+Step 3: For characterization we need 4 parameters rise transition , fall transition , rise cell delay and fall cell delay. 
+        `20 % of 3.3 = 0.66 , 80% of 3.3 = 2.64 , 50% of 3.3 = 1.65`
+
+  1. Rise transition(Rise from 20% to 80%)
+     
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
