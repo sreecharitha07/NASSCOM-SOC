@@ -137,25 +137,39 @@ Step 8: To calculate the Flop Ratio
 **The steps for the floor planning are as follows**:
 
 Step 1: You can see the README file in the configurations folder in which the switches definations and defaults are set to.
- Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration` -> use `less README.md` to open the file or `vim README.md`.
+ 
+ Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration`
+ 
+ use `less README.md` to open the file or `vim README.md`.
+ 
  <img width="592" alt="image" src="https://github.com/user-attachments/assets/eb970830-e9b5-413a-883a-b8e3f36d5f8a" />
 
 
 Step 2: The order of precedence of the files needed for floorplan are as follows this order determines the floorplan data. The values of the switches and pins with highest precedence are over written and are stored. (highest to lowest)
 
-   P1. sky130A_sky130_fd_sc_hd_config.tcl           Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
+   P1. sky130A_sky130_fd_sc_hd_config.tcl          
+   
+   Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
+   
    <img width="672" alt="image" src="https://github.com/user-attachments/assets/b4510b3b-412c-4b2c-b047-38aacb562d2c" />
 
    
-   P2. config.tcl                                   Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
+   P2. config.tcl                                   
+   
+   Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
+   
    ![image](https://github.com/user-attachments/assets/6605b91f-54cb-4fb5-b231-e1b7f94b870a)
 
    
-   P3. floorplan.tcl                                Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration`
+   P3. floorplan.tcl                                
+   
+   Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration`
+   
   <img width="617" alt="image" src="https://github.com/user-attachments/assets/20db777a-79cd-4b23-a374-a69f83703897" />
 
 
 Step 3: Now we run the command `run_floorplan` in the openlane window. Either overwrite it or run the synthesis again followed by floorplan
+
 <img width="602" alt="image" src="https://github.com/user-attachments/assets/15a6d471-cd67-470f-9db1-034cb3c8f10a" />
 
 <img width="391" alt="image" src="https://github.com/user-attachments/assets/16ab74f1-26b1-423f-873b-60df35be7aef" />
@@ -164,9 +178,11 @@ Step 3: Now we run the command `run_floorplan` in the openlane window. Either ov
 
 Step 1: To find the dimensions of the die we have to locate floorplan def file which gives us the orientations and locations
 directory: 
+
 <img width="602" alt="image" src="https://github.com/user-attachments/assets/24dc53dc-602d-4d06-a08c-eeb076aea2ea" />
 
 floorplan def file
+
 <img width="598" alt="image" src="https://github.com/user-attachments/assets/2138ccc3-6c97-48ce-ba44-f6d0b88418e1" />
 
 Step 2: To calculate the dimensions we have:
@@ -185,7 +201,9 @@ Step 3: To calculate the area of the die.
 ### **Task - 3: To verify the horizontal and vertical paths in Magic**
 
 Step 1: Open magic tool in the below directory and enter the below flow
+
    Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-05_16-48/results/floorplan`
+   
    Flow : `magic -T/home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &`
    
    <img width="490" alt="image" src="https://github.com/user-attachments/assets/b49784fc-9ce4-49ff-9564-a0df254f7b03" />
@@ -198,24 +216,29 @@ Step 2: Layout will be opened with the tkcon window(gives us the information abo
 
 Step 3: Vertical and horizontal I/O pins are as fllows:
 
-    <img width="389" alt="image" src="https://github.com/user-attachments/assets/65ab9362-44bd-4fa6-bb5d-36e3060d8a45" />
+   <img width="389" alt="image" src="https://github.com/user-attachments/assets/65ab9362-44bd-4fa6-bb5d-36e3060d8a45" />
 
-    <img width="523" alt="image" src="https://github.com/user-attachments/assets/5c34891a-334b-411d-b5af-3c0ef1521fce" />
+   <img width="523" alt="image" src="https://github.com/user-attachments/assets/5c34891a-334b-411d-b5af-3c0ef1521fce" />
 
 
 ## PLACEMENT
 
 Step 1: Run the command `run_placement` in the docker window after the floorplan
+
 <img width="533" alt="image" src="https://github.com/user-attachments/assets/9d7a59f1-f873-4954-a74f-815dbc279a39" />
 
 Step 2: We can see the .def file is created in the placement directory
+
 <img width="529" alt="image" src="https://github.com/user-attachments/assets/bba50466-f550-4002-9265-508bdedc9062" />
 
 Step 3: Invoke the magic tool by entering the below directory in the placement folder inside the result folder
+
 `magic -T/home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
+
 <img width="425" alt="image" src="https://github.com/user-attachments/assets/51e8886c-029e-4a03-978c-109cd7d796b8" />
 
 The Zoomedin Version gives us the idea about how the standard cells are placed in rows and all the decap , tap cells , I/O pins are all ensured right by floorplan and placement.
+
 <img width="424" alt="image" src="https://github.com/user-attachments/assets/e8157677-e678-4713-8796-2c143d002e91" />
 
 
