@@ -10,8 +10,8 @@
    - [Lab Tasks](#lab-tasks)
   
 3. [Day 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS](#2-day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
-   - [Theory](#day-3---theory)  
-   - [Lab Tasks](#day-3---lab-tasks)
+   - [Theory](#day-2---theory)  
+   - [Lab Tasks](#day-2---lab-tasks)
 
 4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#3-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
    - [Theory](#theory)
