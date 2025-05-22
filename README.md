@@ -23,7 +23,7 @@ Below is the screenshot showing the system specifications of the Ubuntu virtual 
 
 ## **2. DAY 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK**
 
-### **INTRODUCTION**
+### **THEORY**
 [📄 Day-1.pdf](Day-1.pdf)
 
 ### **LAB TASKS**
