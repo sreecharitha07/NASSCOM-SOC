@@ -1,11 +1,11 @@
 # ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
-1. [Introduction](#introduction)
+1. [INTRODUCTIO](#introduction)
    - [OpenLane](#openlane)
    - [Installation](#installation)
      
-2. [Day 1 - Inception of Open-Source EDA, OpenLANE and SKY130 PDK](#2-day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
+2. [Day 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK](#2-day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
    - [Theory](#theory)
    - [Lab Tasks](#lab-tasks)
   
