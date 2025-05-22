@@ -4,6 +4,10 @@
 1. [Introduction](#introduction)
    - [OpenLane](#openlane)
    - [Installation](#installation)
+     
+2. [Day 1 - Inception of Open-Source EDA, OpenLANE and SKY130 PDK](#2-day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
+   - [Theory](#theory)
+   - [Lab Tasks](#lab-tasks)
 
 
 ## **1. INTRODUCTION**
