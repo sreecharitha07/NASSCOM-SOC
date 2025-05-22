@@ -1,6 +1,9 @@
 # ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
+1. [Introduction](#introduction)
+   - [OpenLane](#openlane)
+   - [Installation](#installation)
 
 
 ## **1. INTRODUCTION**
