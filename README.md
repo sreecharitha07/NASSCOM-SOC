@@ -68,12 +68,12 @@ Below is the screenshot showing the system specifications of the Ubuntu virtual 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## **2. DAY 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK**
+## 2. DAY 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK
 
-### **THEORY**
+### THEORY
 [📄 Day-1.pdf](Day-1.pdf)
 
-### **LAB TASKS**
+### LAB TASKS
 
 ### Task-1 : To find the flop ratio
 
@@ -125,14 +125,14 @@ Step 8: To calculate the Flop Ratio
 
 ## **3. DAY 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS**
 
-### **THEORY**
+### THEORY
 [📄 Day-1.pdf](Day-1.pdf)
 
-### **LAB TASKS**
+### LAB TASKS
 
 ## FLOOR PLANNING
 
-### **Task - 1: To Characyerize the Floor planning files**
+### Task - 1: To Characyerize the Floor planning files
 
 **The steps for the floor planning are as follows**:
 
@@ -241,7 +241,14 @@ The Zoomedin Version gives us the idea about how the standard cells are placed i
 
 <img width="424" alt="image" src="https://github.com/user-attachments/assets/e8157677-e678-4713-8796-2c143d002e91" />
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+## Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION
+
+### THEORY
+[📄 Day-1.pdf](Day-1.pdf)
+
+### LAB TASKS
 
 
 
