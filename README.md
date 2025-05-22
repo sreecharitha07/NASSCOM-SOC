@@ -139,7 +139,8 @@ Step 2: The order of precedence of the files needed for floorplan are as follows
    ![image](https://github.com/user-attachments/assets/3e945873-b877-4b22-ba19-8cca8d3d82e0)
 
 Step 3: Now we run the command `run_floorplan` in the openlane window. Either overwrite it or run the synthesis again followed by floorplan
-![image](https://github.com/user-attachments/assets/21afb223-c33d-4bae-bfff-0ed783e8f0c7)
+<img width="602" alt="image" src="https://github.com/user-attachments/assets/15a6d471-cd67-470f-9db1-034cb3c8f10a" />
+
 ![image](https://github.com/user-attachments/assets/75b12b9e-2fbb-4cb9-85fe-2449e84f735c)
 
 
