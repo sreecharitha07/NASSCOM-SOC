@@ -123,25 +123,28 @@ Step 8: To calculate the Flop Ratio
 
 Step 1: You can see the README file in the configurations folder in which the switches definations and defaults are set to.
  Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration` -> use `less README.md` to open the file or `vim README.md`.
- ![image](https://github.com/user-attachments/assets/b3f13411-15a3-4b81-b048-6319c75ad9fb)
+ <img width="592" alt="image" src="https://github.com/user-attachments/assets/eb970830-e9b5-413a-883a-b8e3f36d5f8a" />
+
 
 Step 2: The order of precedence of the files needed for floorplan are as follows this order determines the floorplan data. The values of the switches and pins with highest precedence are over written and are stored. (highest to lowest)
 
    P1. sky130A_sky130_fd_sc_hd_config.tcl           Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
-   ![image](https://github.com/user-attachments/assets/38bcf13a-8262-4475-a609-7273142591d7)
-   
+   <img width="672" alt="image" src="https://github.com/user-attachments/assets/b4510b3b-412c-4b2c-b047-38aacb562d2c" />
 
+   
    P2. config.tcl                                   Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
    ![image](https://github.com/user-attachments/assets/6605b91f-54cb-4fb5-b231-e1b7f94b870a)
 
    
    P3. floorplan.tcl                                Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration`
-   ![image](https://github.com/user-attachments/assets/3e945873-b877-4b22-ba19-8cca8d3d82e0)
+  <img width="617" alt="image" src="https://github.com/user-attachments/assets/20db777a-79cd-4b23-a374-a69f83703897" />
+
 
 Step 3: Now we run the command `run_floorplan` in the openlane window. Either overwrite it or run the synthesis again followed by floorplan
 <img width="602" alt="image" src="https://github.com/user-attachments/assets/15a6d471-cd67-470f-9db1-034cb3c8f10a" />
+<img width="391" alt="image" src="https://github.com/user-attachments/assets/16ab74f1-26b1-423f-873b-60df35be7aef" />
 
-![image](https://github.com/user-attachments/assets/75b12b9e-2fbb-4cb9-85fe-2449e84f735c)
+
 
 
 
