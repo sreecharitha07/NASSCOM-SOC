@@ -32,11 +32,11 @@ Below is the screenshot showing the system specifications of the Ubuntu virtual 
 
 ### **LAB TASKS**
 
-### Task-1 : To find the flop ratio
+### <u>Task-1 : To find the flop ratio</u>
 
         The flop ratio = No. of D flip flops/No. of cells
 
-The steps for the synthesis which helps us to find the flop ratio is as follows:
+**The steps for the synthesis which helps us to find the flop ratio is as follows**:
 
 Step 1: Open the openLane directory
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/a602e752-3671-4e50-bde4-59ac65aee88b" />
