@@ -8,7 +8,24 @@
 2. [Day 1 - Inception of Open-Source EDA, OpenLANE and SKY130 PDK](#2-day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
    - [Theory](#theory)
    - [Lab Tasks](#lab-tasks)
+  
+3. [Day 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS](#2-day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+   - [Theory](#theory)
+   - [Lab Tasks](#lab-tasks)
+  
+4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#3-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
+   - [Theory](#theory)
+   - [Lab Tasks](#lab-tasks)
 
+5. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#4-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
+   - [Theory](#theory)
+   - [Lab Tasks](#lab-tasks)
+
+6. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#5-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+   - [Theory](#theory)
+   - [Lab Tasks](#lab-tasks)
+
+----------------------------------------------------------------------------------------------------------------------------
 
 ## **1. INTRODUCTION**
 ### **OPEN LANE**
@@ -49,7 +66,6 @@ Step 3: **"./flow.tcl -interactive"** command is used to launch OpenLane in inte
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/f6c1e9c2-b933-4341-9442-c168d2f8b8b1" />
 
 Step 4: Enter command **"package require openlane 0.9"** it load the openLane package of version 0.9.
-
 `package require openlane 0.9`
 
 Step 5: Enter the command **"prep -design picorv32a"** is used in OpenLane's interactive mode to prepare the design environment for the flow. This step mereges the .lef files 
@@ -78,6 +94,15 @@ Step 8: To calculate the Flop Ratio
         
         Flop ratio: 1613/14876 = 0.108429 
         Flop Percentage : 0.108429*100 = 10.84%
+
+
+
+## **3. DAY 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS**
+
+### **THEORY**
+[📄 Day-1.pdf](Day-1.pdf)
+
+### **LAB TASKS**
         
 
         
