@@ -42,6 +42,18 @@ By installing Ubuntu through Oracle VM VirtualBox, a virtual Linux environment w
 Below is the screenshot showing the system specifications of the Ubuntu virtual machine set up using Oracle VM VirtualBox.
 ![image](https://github.com/user-attachments/assets/47777613-abee-4fda-9080-caf427e9eadd)
 
+### COMMONLY USED COMMANDS
+
+To invove the docker.
+ 1. Go to the below directory: `~/Desktop/work/tools/openlane_working_dir/openlane/`
+ 2. Enter `docker`
+ 3. Enter `./flow.tcl -interactive`
+ 4. Enter `package require openlane 0.9`
+ 5. For the design if you want to run all the process from the start use `prep -design picorv32a`. If you want to over write your design use `prep -design picorv32a -tag "our runs folder name" -overwrite`
+    Eg: if your runs folder is 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## **2. DAY 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK**
 
@@ -96,7 +108,7 @@ Step 8: To calculate the Flop Ratio
         Flop ratio: 1613/14876 = 0.108429 
         Flop Percentage : 0.108429*100 = 10.84%
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## **3. DAY 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS**
 
@@ -106,6 +118,35 @@ Step 8: To calculate the Flop Ratio
 ### **LAB TASKS**
 
 ### **Task - 1: Floor planning**
+
+**The steps for the floor planning are as follows**:
+
+Step 1: You can see the README file in the configurations folder in which the switches definations and defaults are set to.
+ Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration` -> use `less README.md` to open the file or `vim README.md`.
+ ![image](https://github.com/user-attachments/assets/b3f13411-15a3-4b81-b048-6319c75ad9fb)
+
+Step 2: The order of precedence of the files needed for floorplan are as follows this order determines the floorplan data. The values of the switches and pins with highest precedence are over written and are stored. (highest to lowest)
+
+   P1. sky130A_sky130_fd_sc_hd_config.tcl           Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
+   ![image](https://github.com/user-attachments/assets/38bcf13a-8262-4475-a609-7273142591d7)
+   
+
+   P2. config.tcl                                   Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a`
+   ![image](https://github.com/user-attachments/assets/6605b91f-54cb-4fb5-b231-e1b7f94b870a)
+
+   
+   P3. floorplan.tcl                                Directory: `~/Desktop/work/tools/openlane_working_dir/openlane/configuration`
+   ![image](https://github.com/user-attachments/assets/3e945873-b877-4b22-ba19-8cca8d3d82e0)
+
+Step 3: Now we run the command `run_floorplan` in the openlane window. Either overwrite it or run the synthesis again followed by floorplan
+![image](https://github.com/user-attachments/assets/21afb223-c33d-4bae-bfff-0ed783e8f0c7)
+![image](https://github.com/user-attachments/assets/75b12b9e-2fbb-4cb9-85fe-2449e84f735c)
+
+
+
+
+
+
 
 
         
