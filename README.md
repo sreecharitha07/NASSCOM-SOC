@@ -132,7 +132,7 @@ Step 8: To calculate the Flop Ratio
 
 ## FLOOR PLANNING
 
-### Task - 1: To Characyerize the Floor planning files
+### Task - 1: To Characterize the Floor planning files
 
 **The steps for the floor planning are as follows**:
 
@@ -249,6 +249,12 @@ The Zoomedin Version gives us the idea about how the standard cells are placed i
 [📄 Day-1.pdf](Day-1.pdf)
 
 ### LAB TASKS
+We make use of Custom Inverter. Steps to clone the custom Inverter are:
+Step 1: Go to the github clone link `https://github.com/nickson-jose/vsdstdcelldesign.git`
+Step 2: Enter this link in the openlane directory as follows and vstdcell has the custom inverter layout
+
+![image](https://github.com/user-attachments/assets/57f9c3bb-c972-45f6-aa60-a13da2f9283d)
+
 
 
 
