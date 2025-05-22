@@ -103,6 +103,10 @@ Step 8: To calculate the Flop Ratio
 [📄 Day-1.pdf](Day-1.pdf)
 
 ### **LAB TASKS**
+
+### **Task - 1: Floor planning**
+
+
         
 
         
