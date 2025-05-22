@@ -15,10 +15,10 @@ Below is the screenshot showing the system specifications of the Ubuntu virtual 
 
 ## **DAY 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK**
 
-### **Introduction**
+### **INTRODUCTION**
 [📄 Day-1.pdf](Day-1.pdf)
 
-## **LAB TASKS**
+### **LAB TASKS**
 
 ### Task-1 : To find the flop ratio
 
