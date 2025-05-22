@@ -43,6 +43,7 @@ Step 1: Open the openLane directory
 
 Step 2 : use **"docker"** command which is used to run the OpenLane toolchain inside a Docker container, which provides a pre-configured environment with all dependencies, tools (like Yosys, Magic, KLayout, OpenROAD, etc.), and paths correctly set up.
 `docker`
+
 Step 3: **"./flow.tcl -interactive"** command is used to launch OpenLane in interactive mode inside the Docker container.
 `./flow.tcl -interactive`
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/f6c1e9c2-b933-4341-9442-c168d2f8b8b1" />
