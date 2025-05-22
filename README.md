@@ -1,7 +1,7 @@
 # ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
-1. [INTRODUCTION](#introduction)
+1. [INTRODUCTION](#1-introduction)
    - [OpenLane](#openlane)
    - [Installation](#installation)
      
@@ -9,19 +9,19 @@
    - [Theory](#theory)
    - [Lab Tasks](#lab-tasks)
   
-3. [Day 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS](#day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+3. [Day 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS](#3-day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
    - [Theory](#day-2-theory)
    - [Lab Tasks](#day-2-lab-tasks)
 
-4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#3-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
+4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#4-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
    - [Theory](#theory)
    - [Lab Tasks](#lab-tasks)
 
-5. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#4-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
+5. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#5-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
    - [Theory](#theory)
    - [Lab Tasks](#lab-tasks)
 
-6. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#5-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+6. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#6-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
    - [Theory](#theory)
    - [Lab Tasks](#lab-tasks)
 
