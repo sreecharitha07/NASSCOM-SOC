@@ -1,15 +1,16 @@
 # ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
-1. [INTRODUCTION](#1-introduction)
-   - [OPEN LANE](#openlane)
+
+1. [Introduction](#introduction)
+   - [OpenLane](#openlane)
    - [Installation](#installation)
-     
-2. [Day 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK](#2-day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
-   - [Theory](#theory)
-   - [Lab Tasks](#lab-tasks)
-  
-3. [Day 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS](#3-day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+
+2. [Day 1 - Inception of Open-Source EDA, OpenLane and SKY130 PDK](#day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
+   - [Theory](#day-1-theory)
+   - [Lab Tasks](#day-1-lab-tasks)
+
+3. [Day 2 - Good Floorplan vs Bad Floorplan and Introduction to Library Cells](#day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
    - [Theory](#day-2-theory)
    - [Lab Tasks](#day-2-lab-tasks)
 
