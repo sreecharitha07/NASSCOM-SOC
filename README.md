@@ -18,6 +18,8 @@ Below is the screenshot showing the system specifications of the Ubuntu virtual 
 ### Introduction
 [📄 Day-1.pdf](Day-1.pdf)
 
+##LAB TASKS
+
 ### Task-1 : To find the flop ratio
 
         The flop ratio = No. of D flip flops/No. of cells
