@@ -49,6 +49,7 @@ Step 3: **"./flow.tcl -interactive"** command is used to launch OpenLane in inte
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/f6c1e9c2-b933-4341-9442-c168d2f8b8b1" />
 
 Step 4: Enter command **"package require openlane 0.9"** it load the openLane package of version 0.9.
+
 `package require openlane 0.9`
 
 Step 5: Enter the command **"prep -design picorv32a"** is used in OpenLane's interactive mode to prepare the design environment for the flow. This step mereges the .lef files 
