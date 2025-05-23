@@ -1465,11 +1465,23 @@ Setup slack
 We observe that the slack has improved from 14.1462 to 13.9090
 ![image](https://github.com/user-attachments/assets/7fd61fa1-f319-423d-bbca-dda709c2b109)
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+## 7. CONCLUSION
+
+Hence we have achieved our design by ensuring the proper timing is met , by characterization starting from RTL to genearating GDSII file ready for the layout:
+The flow of the cell design is as follows from the start
+1. Design
+2. Synthesis
+3. Floorplan
+4. Placement
+5. CTS(Clock tree synthesis)
+6. Routing
+7. STA(Static timing Analysis)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 7. REFERENCES
+## 8. REFERENCES
 
    1. Google. SkyWater Open Source PDK. GitHub. Available at:
 
@@ -1492,7 +1504,7 @@ We observe that the slack has improved from 14.1462 to 13.9090
       https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## 8. ACKNOWLEDGEMENT
+## 9. ACKNOWLEDGEMENT
 
 I would like to sincerely thank Mr. Kunal Ghosh, Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd., and Mr. Nickson Jose for their outstanding mentorship and engaging delivery during the DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING workshop. Their depth of knowledge and ability to clearly explain complex concepts made a significant impact on my understanding of physical chip design using OpenLANE and other advanced tools. The workshop was thoughtfully structured and exceptionally informative. I’m truly grateful to both Mr. Ghosh and Mr. Jose for their dedication and for generously sharing their expertise, which made this learning experience both insightful and inspiring
 
