@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6e378c58-3259-4d6f-a89b-00743f150a62)# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
+# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
 
