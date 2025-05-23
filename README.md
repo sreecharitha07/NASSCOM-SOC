@@ -1,4 +1,4 @@
-# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
+![image](https://github.com/user-attachments/assets/7fe44619-b613-41ac-a6c7-f30b81ff8bec)![image](https://github.com/user-attachments/assets/c62d6c30-32e3-41fc-9832-e3ef114f4672)![image](https://github.com/user-attachments/assets/4c93394a-37ef-47e1-82ee-e8d50091d203)# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
 
@@ -335,10 +335,155 @@ Step 2: Plot the graph using command `plot y vs time a` -> plot output vs time i
 
 ![image](https://github.com/user-attachments/assets/718bc093-5e65-4b82-bf54-5b8beba2f2b0)
 
-Step 3: For characterization we need 4 parameters rise transition , fall transition , rise cell delay and fall cell delay. 
+Step 3: For characterization we need 4 parameters rise transition , fall transition , rise cell delay and fall cell delay. We take the height of the graph from 0V to 3.3V
         `20 % of 3.3 = 0.66 , 80% of 3.3 = 2.64 , 50% of 3.3 = 1.65`
 
   1. Rise transition(Rise from 20% to 80%)
+
+     Rise At 20%
+
+     ![image](https://github.com/user-attachments/assets/c6667217-bc25-4cec-8da8-030235048983)
+
+     Rise At 80%
+
+     ![image](https://github.com/user-attachments/assets/ff7f43db-498e-455a-954d-2ffd43a62bc6)
+
+     `X0 = The difference between the Rise transition at 20% and 80% of x0 values`
+     `X0 = 2.24655-2.1824`
+     `X0=0.064ns`
+     ![image](https://github.com/user-attachments/assets/0c9d4302-9494-449c-bc1f-c0b791b92d2d)
+
+2. Fall transition(Fall from 80% to 20%)
+
+   Fall at 80%
+
+   ![image](https://github.com/user-attachments/assets/b09e618d-f025-4a63-801a-fda1d45263c6)
+
+
+   Fall at 20%
+
+   ![image](https://github.com/user-attachments/assets/7b4cbf10-59b0-4e37-94a7-94aec950ce08)
+
+
+     `X0 = The difference between the Fall transition at 20% and 80% of x0 values`
+     `X0 = 4.0964-4.0531`
+     `X0 = 0.0433ns `
+   ![image](https://github.com/user-attachments/assets/79980371-fbc1-4e34-bbc2-e57b8e8926ec)
+
+3. Rise delay(Rise at 50% of the output)
+
+   ![image](https://github.com/user-attachments/assets/870cd1f7-6dcd-4278-a7de-272c2a21778b)
+
+    `X0 = The difference between the Rise of Input and output at 50% of x0 values`
+     `X0 = 2.211-2.15`
+     `X0 = 0.062ns `
+
+4. Fall delay(Fall at 50% of the output)
+
+![image](https://github.com/user-attachments/assets/bb36db75-3f95-40a9-8e73-4b547e4bd6ab)
+
+
+    `X0 = The difference between the Fall of Input and output at 50% of x0 values`
+     `X0 = 4.077-4.050`
+     `X0 = 0.027ns `
+
+### Task - 4: To work on Met3 mag file in magic from drc_test folder .
+
+Step 1: After the characterization of the inverter load the wget again to open the magicrc file to locate where the .tech file. We download the lab files from the below directory copy this in the command window as seen below
+Lab files: `wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz`
+
+Commad to extract the drc_tests `tar xfz drc_tests.tgz`.
+Go to the directory `cd drc_tests.tgz.1`
+
+![image](https://github.com/user-attachments/assets/fe1374af-9115-4589-9afc-f8aa8cf2bab3)
+
+We can observe that Metal layers drawn for the layout in the drc_test folder
+
+![image](https://github.com/user-attachments/assets/5ebe168c-0f83-4cb7-9563-66a76800c656)
+
+Open magic rc in the drc_test folder using the command `vi .magicrc`
+
+![image](https://github.com/user-attachments/assets/2f75730b-0628-4bdd-ae85-7fce01218505)
+
+Inside the magicrc file, We see the Sky130A tech file
+
+![image](https://github.com/user-attachments/assets/d02a9572-8fff-4e96-a76c-ad07653707be)
+
+
+Step 2: Open Magic in the drc_test folder using the command `magic -d XR`
+
+![image](https://github.com/user-attachments/assets/5b34fafa-c30e-4eb0-ab28-f022a750f290)
+
+Step 3: Load the met3.mag file in layout from File(left corener)->open-> choose met3.mag file.
+
+![image](https://github.com/user-attachments/assets/f7244884-3f26-41a3-93b3-fc21a5dff3b4)
+
+In tckon window `drc why` after selecting a component gives you about the drc information of that component
+
+![image](https://github.com/user-attachments/assets/dfe7dc2b-3010-4a0f-b3c8-223223e017fe)
+
+Step 4: We create a component to check the layers and its properties on how they work and what they are. To create a component use your mouse left press and right press to make a box like structure
+
+We fill the box with metal 3 contact layer using the command `paint m3contact` to paint and crate the cuts.
+Command `cif see VIA2` is used visualize a specific layer here VIA2 is a derived layer that is filled with contact cuts
+
+![image](https://github.com/user-attachments/assets/20c54b4d-60d3-4b0a-b288-0a5334a8a7b1)
+
+To know the dimensions of a component select that compoment and use command `box`
+
+![image](https://github.com/user-attachments/assets/dcc90a43-d778-430b-bee0-6acb4fa88eaa)
+
+To clear feed use command `feed clear`
+
+![image](https://github.com/user-attachments/assets/aa767d5a-c8e4-4590-b7dc-09ab071a4513)
+
+
+### Task - 5: To fix the poly.9 eroor in sky130 tech file .
+
+Step 1: Look into the poly.9 error from the guide `https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html`
+
+![image](https://github.com/user-attachments/assets/42034734-09ec-463f-9c29-2e2f873e99ac)
+
+Step 2: load the ploly from the tckon window using `load poly` command
+
+![image](https://github.com/user-attachments/assets/ac339bd3-1e52-4046-ab4f-88f9c82a8579)
+
+After loading poly we have
+
+![image](https://github.com/user-attachments/assets/fc8e72b2-1078-4dab-bf04-2b80a7ab909d)
+
+Step 3: Identifying the poly.9 error. The spacing should be min of 0.480 with no overlap or to different tap.
+
+Incorrect component with poly.9 error
+
+![image](https://github.com/user-attachments/assets/a9ddee33-ac1a-4efd-a518-b4805d8b6838)
+
+We see it clearly violates the 0.480 spacing error from below after checking the spaceing between the two.
+
+![image](https://github.com/user-attachments/assets/e57de293-3a81-4230-b9f7-af85b548c2a6)
+
+Step 4: Fixing the poly.9 error. Go to 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      
 
 
