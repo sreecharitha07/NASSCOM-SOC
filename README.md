@@ -67,9 +67,6 @@ Below is the screenshot showing the system specifications of the Ubuntu virtual 
 `magic -T/home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
 
 
-   
-
-
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 2. DAY 1 - INCEPTION OF OPEN-SOURCE EDA, OPENLANE AND SKY130 PDK
@@ -130,7 +127,7 @@ Step 8: To calculate the Flop Ratio
 ## 3. DAY 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS
 
 ### THEORY
-[📄 Day-1.pdf](Day-1.pdf)
+[📄 Day-2.pdf](Day-2.pdf)
 
 ### LAB TASKS
 
