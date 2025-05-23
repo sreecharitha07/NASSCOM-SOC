@@ -2,9 +2,10 @@
 
 # **Contents**
 
-1. [Introduction](#introduction)
+1. [Introduction](#1-introduction)
    - [OpenLane](#openlane)
    - [Installation](#installation)
+   - [Commonly used Commands](#commonly-used-commands)
 
 2. [Day 1 - Inception of Open-Source EDA, OpenLane and SKY130 PDK](#day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
    - [Theory](#day-1-theory)
