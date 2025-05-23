@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/4b330e6a-5e6e-498f-b5ee-fd27209fd0d2)# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
+# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
 
@@ -614,6 +614,487 @@ Slack[wns->Worst Negative Slack , tns ->Total Negative Slack]
 ![image](https://github.com/user-attachments/assets/680e42d4-6fec-41bb-a419-dfd9b825f7f2)
 
 As both the slacks are high we have to improve them by modifying. 
+
+
+### Task - 3: To improve the slack and re-run synthesis process.
+
+### SYNTHESIS
+
+**The Steps are as follows:**
+
+Step 1: Go to the README file and check out the SYTH_STRAGEY this helps us to modify the changes
+
+![image](https://github.com/user-attachments/assets/f2d55eae-a7fc-41b7-af47-48421c0eff8f)
+
+Step 2: Invoke docker and overwrite the file for the design step before running synthesis follow the commands below
+
+   1. Additional commands to include newly added lef to openlane flow merged.lef
+      `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+      add_lefs -src $lefs`
+   2. Command to display current value of SYNTH_STRATEGY
+      `echo $::env(SYNTH_STRATEGY)`
+   3. Command to set new value for SYNTH_STRATEGY
+      `set ::env(SYNTH_STRATEGY) "DELAY 3"`
+   4. Command to display current value of SYNTH_BUFFERING to check whether its enabled
+      `echo $::env(SYNTH_BUFFERING)`
+   5. Command to display current value of SYNTH_SIZING
+      `echo $::env(SYNTH_SIZING)`
+   6. Command to set a new value to SYNTH_SIZING
+      `set ::env(SYNTH_SIZING) 1`
+   7. Command to display currennt value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not
+      `echo $::env(SYNTH_DRIVING_CELL)`
+   8. Command to Run synthesis
+      `run_synthesis`
+
+![image](https://github.com/user-attachments/assets/7ba35ebd-1195-4fff-8fc6-309c32cf7dd4)
+
+Step 3: After ruuning synthesis we have the following results:
+
+Area is increased as the usage of extra space for reducing the timing
+
+![image](https://github.com/user-attachments/assets/d9a59e20-d82b-40bf-8fac-54369ad228ee)
+
+Slack is reduced entirely
+
+![image](https://github.com/user-attachments/assets/92cfd8be-9926-4bd2-937d-7be35fca24f3)
+
+Step 4: Verifying if our chaged inv file is present in merged.lef
+
+Directory
+
+![image](https://github.com/user-attachments/assets/fe2347ef-adeb-4b9c-86c5-3563358ad30f)
+
+The vsd inv is shown below
+
+![image](https://github.com/user-attachments/assets/4612883d-25b9-4ee2-811f-9722b5cee36c)
+
+### Task - 4: To run floorplan and placement with the above changes. 
+
+### FLOORPLAN
+
+**The Steps are as follows:**
+
+Step 1: Run floorplan using the below commands:
+
+`init_floorplan`
+
+![image](https://github.com/user-attachments/assets/ae8798b2-0997-4496-8f64-3cf116966e50)
+
+
+`place_io `
+
+![image](https://github.com/user-attachments/assets/03e8f7ee-a576-45c0-9d28-c26c425821f3)
+
+
+`tap_decap_or`
+
+![image](https://github.com/user-attachments/assets/bcb576af-d438-44f9-9a34-c8e6e9114385)
+
+
+### PLACEMENT
+
+Step 2: Run the placement command
+
+command: `run_placement`
+
+![image](https://github.com/user-attachments/assets/5f07a5a4-47f3-416e-82d8-21a5c6ecef36)
+
+Step 3: We can see our layout in the magic tool after synthesis,floorplan and placement
+
+Command directory: `magic -T/home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &`
+
+Directory
+
+![image](https://github.com/user-attachments/assets/5ba44b49-bd17-4d88-b697-e49105e5d3da)
+
+![image](https://github.com/user-attachments/assets/422df6a3-eb21-447e-aacd-b616e17ea2bc)
+
+Zoom in version of layout 
+
+![image](https://github.com/user-attachments/assets/d52dcc75-21a4-4fb3-b5a1-7c479bd5b507)
+
+Select the inv cell and use command `expand` in tkcon window to see the layout of inverter
+
+![image](https://github.com/user-attachments/assets/26180c53-2896-4638-b4f4-d02e5692814a)
+
+![image](https://github.com/user-attachments/assets/42e00694-e56d-4a7d-a7ac-f20faf8148f2)
+
+
+### Task - 5: To run STA analysis.
+
+### STA
+
+We have made the changes and modified the during the synthesis process to get good timing analysis. Now we redo the whole synthesis process to get the original timing such that timing analysis can be done and rectified as such
+
+**The Steps are as follows:**
+
+Step 1: Invoke the docker command and do the pre runs till synthesis.
+
+`set lefs [glob $::env(DESIGN_DIR)/src/*.lef]`
+
+`add_lefs -src $lefs`
+
+`set ::env(SYNTH_SIZING) 1`
+
+![image](https://github.com/user-attachments/assets/e4eab56b-c57e-4894-8ed5-971b88236fc4)
+
+After synthesis
+
+![image](https://github.com/user-attachments/assets/4cc2d4b1-2afd-4700-b764-05ea7893575e)
+
+Step 2: To create a base sdc file based on the custom .sdc file
+
+   1. Custom base.sdc file
+
+      directory
+
+      ![image](https://github.com/user-attachments/assets/1a250891-ef60-4a70-9a3e-106e0c4f83c4)
+
+      Inside Custom base.sdc
+
+      ![image](https://github.com/user-attachments/assets/6bbc0d24-6887-4a5b-a8ed-3ab68c287c3a)
+
+   2. Create a new base sdc file named my_based.sdc using `vim` command
+
+      Directory:
+      
+      ![image](https://github.com/user-attachments/assets/c16d6be7-8ebd-4c19-87af-bf253498415a)
+
+      After modifying my_base.sdc we have the below file
+
+      <img width="545" alt="image" src="https://github.com/user-attachments/assets/13b95425-71b9-45fc-8609-3d06e6ba4832" />
+
+Step 3: To create a pre sta conf file which will do the pre layout analysis
+
+Directory:
+
+![image](https://github.com/user-attachments/assets/9a7b5a95-a61d-43a3-bcd3-38142cfcc54b)
+
+Inside pre_sta.conf
+
+![image](https://github.com/user-attachments/assets/7c647632-0e46-4d8f-83c5-ec45d2375297)
+
+Step 4: Run the sta analysis. Use the command `sta pre_sta.conf` in openlane directory
+
+Directory:
+
+![image](https://github.com/user-attachments/assets/c2ae59c4-2135-4c0b-86fe-ca9d652ad14f)
+
+We see the same slack which was during the synthesis this is due to that fan out delays
+
+![image](https://github.com/user-attachments/assets/2a209f36-3db6-4c55-9575-5a464c2f807d)
+
+
+### Task - 6: To improve the timing of STA analysis.
+
+**The Steps for improving the timing analysis are as follows:**
+
+Step 1: We run the synthesis process again to see the correct fan out delay. Invoke the docker command and rewrite the design file and run synthesis follow the below commands:
+
+ 1. Additional commands to include newly added lef to openlane flow merged.lef
+      `set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+      , add_lefs -src $lefs`
+
+ 2. Command to display current value of SYNTH_SIZING
+      `echo $::env(SYNTH_SIZING)`
+    
+ 3. Command to set a new value to SYNTH_SIZING
+      `set ::env(SYNTH_SIZING) 1`
+
+ 4. Command to set a new value to SYNTH_MAX_FANOUT
+      `set ::env(SYNTH_MAX_FANOUT) 4`
+
+ 5. Command to display currennt value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not
+      `echo $::env(SYNTH_DRIVING_CELL)`
+
+ 6. Run the synthesis
+      `run_synthesis`
+
+![image](https://github.com/user-attachments/assets/bf3c07cc-f04a-4985-8ff1-92a56b892230)
+
+![image](https://github.com/user-attachments/assets/af5c0be0-48d0-4079-a271-5cc396d39633)
+
+![image](https://github.com/user-attachments/assets/d04f4b2a-165a-4c9e-81eb-d3115194ac7f)
+
+You can see that the slack is reduced from -711 to -710
+
+![image](https://github.com/user-attachments/assets/c276696c-b72e-4e2e-9634-569b45f3aa13)
+
+Step 2: Now verify the same by running sta in openlane directory
+
+Command : `sta pre_sta.conf`
+
+![image](https://github.com/user-attachments/assets/1682a1ae-78ef-4c67-bde0-90fe72263ad2)
+
+![image](https://github.com/user-attachments/assets/cae26adc-fb4b-4513-8caf-512fb888c41d)
+
+Same slack as the synthesis 
+
+![image](https://github.com/user-attachments/assets/259fd48e-244e-4a23-ba24-bcca9cf1ddb5)
+
+Step 3: To improve the slack we make chages with regard to fan outs by increasing the drive strengths where ever the delay is more and when its driving more number of inputs and we check the sta again if the slack is improved.
+
+1. Commands used:
+
+   1. To report the net `report_net -connections _net number_`  Eg: report_net -connections _11672_
+    
+   2. To replace cell we have `replace_cell _driver pin number_ sky130_fd_sc_hd__cellname_drivestrength`  Eg: replace_cell _12510_ sky130_fd_sc_hd__or3_4
+
+   3. To obtain results run the sta analysis after change :
+
+      Directory:
+      `~/Desktop/work/tools/openlane_working_dir/openlane`
+
+      Command:
+      `sta pre_sta.conf`
+
+   2. Change 1
+     
+     ![image](https://github.com/user-attachments/assets/2d6f6112-44f6-44b8-bab0-104775007df8)
+
+     Its driving 4 pins so increasig the drive strength is better
+
+     ![image](https://github.com/user-attachments/assets/64e4e50b-89f5-4ff1-b847-a73b04acb637)
+
+     Replacing with 4x:
+     
+     ![image](https://github.com/user-attachments/assets/fa878317-66ab-4fd3-b0a0-ec403f0a821d)
+
+     RESULTS:
+
+     Change in fanout
+
+     ![image](https://github.com/user-attachments/assets/51aec5eb-71a9-45be-9489-c7447a3de533)
+
+     Slack is decreased from the original
+
+     ![image](https://github.com/user-attachments/assets/617e1dff-252a-4975-8f27-da9c047440d6)
+
+   3. Change 2
+
+      ![image](https://github.com/user-attachments/assets/7fc64cda-f492-42f0-ab7f-e9b956e736d7)
+
+     Replacing with 4x:
+
+      ![image](https://github.com/user-attachments/assets/7c837c12-56b6-44a6-909c-c0a268956acb)
+
+     RESULTS:
+
+     Slack is decreased Compared to that last change
+
+      ![image](https://github.com/user-attachments/assets/f3d3eeab-bd72-4769-9081-e9a1d2b0dd52)
+
+   4. Change 3
+  
+      ![image](https://github.com/user-attachments/assets/bec7f2a7-adc2-4703-8e62-704621f6548d)
+
+      Its driving 4 pins so increasig the drive strength is better , Replacing with 4x:
+   
+       ![image](https://github.com/user-attachments/assets/467f527b-ff47-4b0d-bbf5-40401cbd2d48)
+        
+      RESULTS:
+
+      Slack is decreased Compared to that last change
+      
+      ![image](https://github.com/user-attachments/assets/70f5d25f-ebf8-443a-87dd-fbbe7b70a62c)
+
+   5. Change 4
+        
+        ![image](https://github.com/user-attachments/assets/c590fbcc-fe98-4b3c-831c-95e6d45726e9)
+
+        Replacing with 4x:
+  
+         ![image](https://github.com/user-attachments/assets/c30a9a93-5931-42d4-8623-69ea7274c4ba)
+
+        RESULTS:
+   
+        Change in fanout
+      
+         ![image](https://github.com/user-attachments/assets/665764d8-d02e-4518-8e00-6a852bcac084)
+
+        Slack is decreased
+
+         ![image](https://github.com/user-attachments/assets/5dcf231d-0592-45cc-8ce0-135b90f1739b)
+
+
+    6. Change 5
+  
+        ![image](https://github.com/user-attachments/assets/f3a29e29-5bd4-4b47-a476-4f8f20e51d82)
+   
+        Replacing with 4x:
+  
+         ![image](https://github.com/user-attachments/assets/32efa20e-9a54-403d-b484-6b3b23d29bee)
+   
+        RESULTS:
+
+         Change in fanout
+      
+         ![image](https://github.com/user-attachments/assets/d42ab584-0812-4b07-8dea-0073db06bf2a)
+   
+        Slack is decreased
+
+         ![image](https://github.com/user-attachments/assets/70391047-58d8-4baf-a6b8-3fbca2e6466b)
+
+    7. Change 6
+  
+        ![image](https://github.com/user-attachments/assets/1fb67fa7-a72d-44ba-a955-7d355b03568c)
+   
+        Replacing with 4x:
+        
+         ![image](https://github.com/user-attachments/assets/4f10397c-f00e-44b2-82a0-6db046964fd2)
+
+        RESULTS:
+   
+        Change in fanout
+   
+        ![image](https://github.com/user-attachments/assets/c06d4c81-2517-4716-8c87-e7aabac16bed)
+
+        Slack is decreased  
+      
+         ![image](https://github.com/user-attachments/assets/f78f0d3a-b583-45ad-af08-07c1e6f34979)
+
+
+### Task - 7: To Replace the old netlist file after the timing ECO fixing.
+
+**The Steps are as follows:**
+
+Step 1: In the openlane directory after runnin the sta pre_sta.conf command use the below command
+
+Directory: `~/Desktop/work/tools/openlane_working_dir/openlane`
+
+To run sta :  `sta pre_sta.conf`
+
+To rewrite the verilog file use below:
+
+`write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/18-05_18-08/results/synthesis/picorv32a.synthesis.v`
+
+![image](https://github.com/user-attachments/assets/8361b600-6872-472b-9a69-ac2a13c2b594)
+
+Step 2: To verify if its overwritten go to the below directory and open the picorv32a.synthesis file and search for the last pin you have modified for fixing the timing error. 
+
+![image](https://github.com/user-attachments/assets/5a8c8441-0aa6-4988-bdbd-024f867b97b7)
+
+Pin _15168_ was changed from drive strength 2 to 4. we can see that below
+
+![image](https://github.com/user-attachments/assets/e88bf39c-57af-427c-bff8-07e0edb91f47)
+
+
+### Task - 7: To Implement floorplan,placemet,cts(Clock tree synthesis) after fixing the timing and rewriting the verilog file
+
+Step 1: Invoke docker and overwrite the design
+
+![image](https://github.com/user-attachments/assets/42b088d1-5826-4f14-8e84-80ad42a6c4df)
+
+<img width="555" alt="image" src="https://github.com/user-attachments/assets/a5e14636-551e-473e-9eb7-2122f64ed337" />
+
+Step 2: Run synthesis
+
+![image](https://github.com/user-attachments/assets/e218707b-1494-458e-921a-3938d3bceb56)
+
+![image](https://github.com/user-attachments/assets/0c1b1beb-43f8-4a9d-8938-d5d901221e6f)
+
+Step 3: Run floorplan
+
+![image](https://github.com/user-attachments/assets/21eabf1f-67e5-4b6b-bce1-8ecd0a7286f5)
+
+![image](https://github.com/user-attachments/assets/b125eca3-a22a-4c86-97a0-409d216bddd0)
+
+![image](https://github.com/user-attachments/assets/7017db61-3d87-4499-9ec1-3feb4f6db033)
+
+Step 4: Run placement
+
+Command : `run_placement`
+
+![image](https://github.com/user-attachments/assets/df4df732-1d61-41c6-b25e-3c69ce97760c)
+
+Step 5: Run cts
+
+Command : `run_cts`
+
+![image](https://github.com/user-attachments/assets/5dc6fd95-63c7-4ac0-9f43-e2696c73d978)
+
+![image](https://github.com/user-attachments/assets/cc59139c-0af8-49ca-9c3a-25e397ca6fdf)
+
+Step 6: We can see the .v file in the below directory after cts run
+
+![image](https://github.com/user-attachments/assets/b37bc11d-f394-40bf-9282-f90607fb30e0)
+
+
+### Task - 8: To verify CTS
+
+Step 1 : To see how openlane take the procs from ie., the procedure for running a command go to the below directory
+
+Directory:
+
+![image](https://github.com/user-attachments/assets/8bdbe25e-297f-4774-9f70-68ca6232dc9d)
+
+Taking cts tcl file using the command `less cts.tcl` here to check how the proc works. It shows the procedure on how it runs one by one when run_cts is invoked.
+
+![image](https://github.com/user-attachments/assets/54cc7bc1-18e0-45ec-8b6b-e226627bfdd0)
+
+### ABOUT OPENROAD
+Step 2 : Open the openroad in the below directory. Openroad is a EDA tool inside openlane
+
+why is there no file related to synthesis? Openroad runs Floorplan, placement, CTS, routing, STA in a TCL-based scripting
+
+![image](https://github.com/user-attachments/assets/6d742894-12fb-4d0f-9b73-b0140aaadd4c)
+
+Inside or_cts.tcl file. Command `less or_cts.tcl`
+
+![image](https://github.com/user-attachments/assets/2eaabd91-f587-490c-890f-bc11297b4a6d)
+
+![image](https://github.com/user-attachments/assets/d08d100e-dcbd-417e-99f5-b2a7a5861f2e)
+
+Step 3: Go back to the openlane docker window after running till cts we run the below commands 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
