@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7fe44619-b613-41ac-a6c7-f30b81ff8bec)![image](https://github.com/user-attachments/assets/c62d6c30-32e3-41fc-9832-e3ef114f4672)![image](https://github.com/user-attachments/assets/4c93394a-37ef-47e1-82ee-e8d50091d203)# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
+# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
 
@@ -462,7 +462,30 @@ We see it clearly violates the 0.480 spacing error from below after checking the
 
 ![image](https://github.com/user-attachments/assets/e57de293-3a81-4230-b9f7-af85b548c2a6)
 
-Step 4: Fixing the poly.9 error. Go to 
+Step 4: Fixing the poly.9 error. Go to the drc_tests directory and open the sky130A.tech file in edit mode
+
+![image](https://github.com/user-attachments/assets/1deea9b9-b241-45b8-a531-2e13477105d2)
+
+search `:/poly.9` to loacte to the error in sky130A file and to make changes use `i` - insert to edit
+
+![image](https://github.com/user-attachments/assets/f2e71957-353f-40db-b7fa-04780d15e188)
+
+After adding new line for fixing the drc error we have the below
+
+![image](https://github.com/user-attachments/assets/e4796530-c9aa-4dc6-997b-382b68982139)
+
+Step 5: AFter fixing the error check again in the tckon window invoke using the magic command mentioned above 
+Command to run in tckon window 
+`tech load sky130.tech` -> load the tech file
+`drc check` -> Run the drc to check the updated spacking
+`drc why` -> Gives you the information about drc
+`box` -> gives you the dimensions of the selected component
+
+
+
+
+
+
 
 
 
