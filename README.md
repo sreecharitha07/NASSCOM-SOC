@@ -8,12 +8,12 @@
    - [Commonly used Commands](#commonly-used-commands)
 
 2. [Day 1 - Inception of Open-Source EDA, OpenLane and SKY130 PDK](#2-day-1---inception-of-open-source-eda-openlane-and-sky130-pdk)
-   - [Theory](#day-1-theory)
-   - [Lab Tasks](#day-1-lab-tasks)
+   - [Theory](#theory)
+   - [Lab Tasks](#lab-tasks)
 
-3. [Day 2 - Good Floorplan vs Bad Floorplan and Introduction to Library Cells](#day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
-   - [Theory](#day-2-theory)
-   - [Lab Tasks](#day-2-lab-tasks)
+3. [Day 2 - Good Floorplan vs Bad Floorplan and Introduction to Library Cells](#3-day-2---good-floorplan-vs-bad-floorplan-and-introduction-to-library-cells)
+   - [Theory](#theory-1)
+   - [Lab Tasks](#lab-tasks-1)
 
 4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#4-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
    - [Theory](#theory)
