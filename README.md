@@ -1,4 +1,4 @@
-# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
+![image](https://github.com/user-attachments/assets/4b330e6a-5e6e-498f-b5ee-fd27209fd0d2)# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
 
@@ -477,10 +477,161 @@ After adding new line for fixing the drc error we have the below
 Step 5: AFter fixing the error check again in the tckon window invoke using the magic command mentioned above 
 Command to run in tckon window 
 `tech load sky130.tech` -> load the tech file
+
 `drc check` -> Run the drc to check the updated spacking
+
 `drc why` -> Gives you the information about drc
+
 `box` -> gives you the dimensions of the selected component
 
+<img width="448" alt="image" src="https://github.com/user-attachments/assets/e80b29f0-e25f-4acb-a77a-fc7ccb2d994f" />
+
+Laod metal contact file to magic and check if it still has violations.
+
+![image](https://github.com/user-attachments/assets/a6bf4051-b95c-4af2-a3d8-6b2ca33b8dec)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE
+
+### THEORY
+[📄 Day-1.pdf](Day-1.pdf)
+
+### LAB TASKS
+
+### Task - 1: Convert grid to track info and to ensure if the layout follows the guidelines of pnr rules while making a standard cell.
+
+**The Steps and guidelines are as follows:**
+Step 1: Open tracks information is in the below directory
+     ![image](https://github.com/user-attachments/assets/b1c3352f-1cee-4898-87b4-8f2949f39b9c)
+
+     Inside tracks.info file
+     
+     ![image](https://github.com/user-attachments/assets/cf6791be-2b4e-4a76-998a-839cba4d74b5)
+
+Step 2: Open layout using magic
+command: `magic -T sky130A.tech sky130_inv.mag`
+
+![image](https://github.com/user-attachments/assets/bf0fdca5-567e-4381-9bda-771f08ba1fcd)
+
+Step 3: To ensure by following the guidelines if our standard cell is as per the pnr rules we do the following:
+
+  1. Check tracks and enable the grids by typing `G`.
+     
+     ![image](https://github.com/user-attachments/assets/fd191453-d38b-4ad6-b57e-4dd47ea0fd1b)
+
+  2. Guideline 1: The input and output ports should be at intersection of horizontal and vertical lines. Give the dimensions of the tracks from the tracks file seen before in the syntax given 
+    below in tckon window.
+
+   Syntax : `grid[xspacing[yspacing[xorigin yorigin]]]`
+
+   ![image](https://github.com/user-attachments/assets/d23effe7-7400-4fb4-be3f-910ccbda9511)
+
+   Doing this ensures that I/O ports are placed at intersection show in below image (arrow pointed)
+
+   ![image](https://github.com/user-attachments/assets/1c39b6c6-6643-4922-9792-4ab79a25fb14)
+
+ 3. Guideline 2: Required width of the standard cell should be in odd multiples x direction pitch of that layer( x pitch is 0.46)
+
+    The Width is 3 boxes here. Ensuring the guideline
+   
+   ![image](https://github.com/user-attachments/assets/f5b1964d-a647-4cf4-b5d7-50f52f0aa11e)
+
+ 4. Guideline 3: Required height of the standard cell should be in odd multiple
+
+   ![image](https://github.com/user-attachments/assets/4393235c-37f8-4787-84df-16fe1bc18301)
+
+### Task - 2: To write lef file of the standard cell, to copy the files in src directory and make changes in config.tcl file for synthesis process. 
+
+**The Steps are as follows:**
+
+Step 1: In the same layout window ad above we convert the labels to ports if not converted already such that lef could read our layout and generate a file
+
+![image](https://github.com/user-attachments/assets/4ffa1945-963d-4517-813d-dfe06ea1d19b)
+
+Step 2: Save the layout with a different name so that its easier for us to locate this file in the tkcon window.
+Command: `save sky130_vsdinv.mag`
+
+![image](https://github.com/user-attachments/assets/91556af4-20df-4211-bd85-8b4421417c0d)
+
+Step3: Write lef in the tkcon window. 
+
+Command:`lef write`
+
+![image](https://github.com/user-attachments/assets/255d98ab-6e5a-47d4-b4f3-e80a75be6a59)
+
+We can locate our lef file vsddtscelldesign folder as shown below:
+
+![image](https://github.com/user-attachments/assets/d802ee7e-a709-43c0-88b0-babeea7dd41b)
+
+Inside .lef file
+
+![image](https://github.com/user-attachments/assets/7e70046d-7a23-4eb8-98a6-bb44c4185ef3)
+
+Step 4: We copy the lef file to src directory use `cp command and the file directory` to copy as shown below:
+
+![image](https://github.com/user-attachments/assets/7996fbb3-6702-4541-b479-ba1857542f63)
+
+All the lib files needed are in src folder such that synthesis can map during the flow
+
+![image](https://github.com/user-attachments/assets/cc8698ff-6706-447e-ab14-6c81c9d61aa0)
+
+![image](https://github.com/user-attachments/assets/a7535e48-48f0-48a4-a677-41888d7ecafa)
+
+Step 5: We modify the config.tcl file by adding all library paths.
+
+Directory
+
+![image](https://github.com/user-attachments/assets/9392db2b-c28e-4387-8b70-a3bbfedc5d44)
+
+Modified file
+
+![image](https://github.com/user-attachments/assets/aa35aee7-dbeb-4332-9a70-53806147efe2)
+
+Step 6: Invoke docker and follow the basic commands for openlane mentioned in Introduction section(commonly used command) above.
+
+Overwrite our runs file
+
+![image](https://github.com/user-attachments/assets/4dc975da-e842-43cc-9722-15eb1d8df09c)
+
+Commands to be used addtionally:
+`set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs`
+
+![image](https://github.com/user-attachments/assets/c8fbb213-75ea-41d6-b4b4-091620877146)
+
+Run the command `run_synthsis`. It will be reading the config.tcl file we modified bylinking to the libraries we have added.
+
+![image](https://github.com/user-attachments/assets/bb6bb45a-933d-49f8-8e3b-96d42439346b)
+
+Chip area
+
+![image](https://github.com/user-attachments/assets/0856b173-34b1-42b4-829e-5e91db4b4b0a)
+
+Slack[wns->Worst Negative Slack , tns ->Total Negative Slack]
+
+![image](https://github.com/user-attachments/assets/680e42d4-6fec-41bb-a419-dfd9b825f7f2)
+
+As both the slacks are high we have to improve them by modifying. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+     
 
 
 
