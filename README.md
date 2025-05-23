@@ -19,15 +19,16 @@
    - [Lab Tasks](#lab-tasks-2)
 
 5. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#5-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
-   - [Theory](#theory-3)
    - [Lab Tasks](#lab-tasks-3)
 
 6. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#6-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
-   - [Theory](#theory-4)
    - [Lab Tasks](#lab-tasks-4)
 
-7. [References](#7-references)
-8. [Acknowledgement](#8-acknowledgement)
+7. [Conclusion](#7-conclusion)
+   
+8. [References](#8-references)
+    
+9. [Acknowledgement](#9-acknowledgement)
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -244,9 +245,6 @@ The Zoomedin Version gives us the idea about how the standard cells are placed i
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 4. Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION
-
-### THEORY
-[📄 Day-1.pdf](Day-1.pdf)
 
 ### LAB TASKS
 
@@ -502,9 +500,6 @@ Laod metal contact file to magic and check if it still has violations.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 5. Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE
-
-### THEORY
-[📄 Day-1.pdf](Day-1.pdf)
 
 ### LAB TASKS
 
@@ -1288,9 +1283,6 @@ Step 7: To Exit from openroad
 
 ## 6. Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA
 
-### THEORY
-[📄 Day-1.pdf](Day-1.pdf)
-
 ### LAB TASKS
 
 ### PDN(POWER DISTRIBUTION NETWORK)
@@ -1397,6 +1389,82 @@ The routing is done
 ![image](https://github.com/user-attachments/assets/372f50a4-0198-48b6-8288-29762f79274c)
 
 ![image](https://github.com/user-attachments/assets/2210f777-4beb-4e34-9988-ce1e16ee15f0)
+
+### Task - 2: Post Routing to extract parasetic extraction
+
+**Steps for the extraction are as follows:**
+
+Step 1: Ensure the .spef file is there in openlane in the following directory
+
+![image](https://github.com/user-attachments/assets/f116f5c0-48a9-4161-b26d-e7abafe75d4d)
+
+Step 2: After running routing there would be two .v files added, we will be using the below one for post routing.
+
+![image](https://github.com/user-attachments/assets/8fb4be2f-ee0f-44ad-bb58-874abe4bb807)
+
+Step 3: Invoke openroad in the openlane and perform the following steps
+
+   1. `openroad`
+
+      ![image](https://github.com/user-attachments/assets/6540c0e2-cbb2-42f3-9363-6f0e471417cd)
+
+   2. Read lef file
+
+      ![image](https://github.com/user-attachments/assets/663977c3-9351-40fa-8c64-5451926ff981)
+
+  3. Read def file
+
+     ![image](https://github.com/user-attachments/assets/f840dcc9-5439-407a-a61a-3d34e5a1c2d0)
+
+  4. read an write the database
+
+     `write_db pico_route.db`
+
+      `read_db pico_route.db`
+
+  5. Read netlist
+     
+     `read_verilog /openLANE_flow/designs/picorv32a/runs/18-05_18-08/results/synthesis/picorv32a.synthesis_preroute.v`
+
+  6. Read library for design
+     
+     `read_liberty $::env(LIB_SYNTH_COMPLETE)`
+
+  7. Link design and library
+
+      `link_design picorv32a`
+
+  8. Read custom sdc
+     
+     `read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc`
+
+  9. Setting all cloks as propagated clocks
+
+   `set_propagated_clock [all_clocks]`
+
+  10. Read the specf file from the directory
+      
+      `read_spef /openLANE_flow/designs/picorv32a/runs/18-05_18-08/results/routing/picorv32a.spef`
+
+  12.  To report the timing
+
+      `report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4`
+
+   ![image](https://github.com/user-attachments/assets/93686cef-a209-4afd-9df2-2d368f5ab811)
+
+RESULTS:
+
+Hold slack
+
+![image](https://github.com/user-attachments/assets/bc8cc1b3-208d-4990-88d3-94f419e0909d)
+
+![image](https://github.com/user-attachments/assets/bbb7e2ee-8853-4247-b483-2ca598a596cd)
+
+Setup slack 
+
+We observe that the slack has improved from 14.1462 to 13.9090
+![image](https://github.com/user-attachments/assets/7fd61fa1-f319-423d-bbca-dda709c2b109)
+
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
