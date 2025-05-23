@@ -16,19 +16,20 @@
    - [Lab Tasks](#lab-tasks-1)
 
 4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#4-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
+   - [Theory](#theory-2)
    - [Lab Tasks](#lab-tasks-2)
 
-5. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#5-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
+6. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#5-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
    - [Lab Tasks](#lab-tasks-3)
 
-6. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#6-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+7. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#6-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
    - [Lab Tasks](#lab-tasks-4)
 
-7. [Conclusion](#7-conclusion)
+8. [Conclusion](#7-conclusion)
    
-8. [References](#8-references)
+9. [References](#8-references)
     
-9. [Acknowledgement](#9-acknowledgement)
+10. [Acknowledgement](#9-acknowledgement)
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -245,6 +246,9 @@ The Zoomedin Version gives us the idea about how the standard cells are placed i
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 4. Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION
+
+### THEORY
+[📄 Day-3.pdf](Day-3.pdf)
 
 ### LAB TASKS
 
