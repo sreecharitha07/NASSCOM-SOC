@@ -16,16 +16,19 @@
    - [Lab Tasks](#lab-tasks-1)
 
 4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#4-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
-   - [Theory](#theory)
-   - [Lab Tasks](#lab-tasks)
+   - [Theory](#theory-2)
+   - [Lab Tasks](#lab-tasks-2)
 
 5. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#5-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
-   - [Theory](#theory)
-   - [Lab Tasks](#lab-tasks)
+   - [Theory](#theory-3)
+   - [Lab Tasks](#lab-tasks-3)
 
 6. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#6-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
-   - [Theory](#theory)
-   - [Lab Tasks](#lab-tasks)
+   - [Theory](#theory-4)
+   - [Lab Tasks](#lab-tasks-4)
+
+7. [References](#7-references)
+8. [Acknowledgement](#8-acknowledgement)
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -124,7 +127,7 @@ Step 8: To calculate the Flop Ratio
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## **3. DAY 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS**
+## 3. DAY 2 - GOOD FLOORPLAN VS BAD FLOORPLAN AND INTRODUCTION TO LIBRARY CELLS
 
 ### THEORY
 [📄 Day-1.pdf](Day-1.pdf)
@@ -244,7 +247,7 @@ The Zoomedin Version gives us the idea about how the standard cells are placed i
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION
+## 4. Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION
 
 ### THEORY
 [📄 Day-1.pdf](Day-1.pdf)
@@ -337,6 +340,7 @@ Step 2: Plot the graph using command `plot y vs time a` -> plot output vs time i
 ![image](https://github.com/user-attachments/assets/718bc093-5e65-4b82-bf54-5b8beba2f2b0)
 
 Step 3: For characterization we need 4 parameters rise transition , fall transition , rise cell delay and fall cell delay. We take the height of the graph from 0V to 3.3V
+
         `20 % of 3.3 = 0.66 , 80% of 3.3 = 2.64 , 50% of 3.3 = 1.65`
 
   1. Rise transition(Rise from 20% to 80%)
@@ -350,42 +354,50 @@ Step 3: For characterization we need 4 parameters rise transition , fall transit
      ![image](https://github.com/user-attachments/assets/ff7f43db-498e-455a-954d-2ffd43a62bc6)
 
      `X0 = The difference between the Rise transition at 20% and 80% of x0 values`
+     
      `X0 = 2.24655-2.1824`
+     
      `X0=0.064ns`
+     
      ![image](https://github.com/user-attachments/assets/0c9d4302-9494-449c-bc1f-c0b791b92d2d)
 
-2. Fall transition(Fall from 80% to 20%)
+3. Fall transition(Fall from 80% to 20%)
 
    Fall at 80%
 
    ![image](https://github.com/user-attachments/assets/b09e618d-f025-4a63-801a-fda1d45263c6)
 
-
    Fall at 20%
 
    ![image](https://github.com/user-attachments/assets/7b4cbf10-59b0-4e37-94a7-94aec950ce08)
 
-
      `X0 = The difference between the Fall transition at 20% and 80% of x0 values`
+   
      `X0 = 4.0964-4.0531`
+   
      `X0 = 0.0433ns `
+   
    ![image](https://github.com/user-attachments/assets/79980371-fbc1-4e34-bbc2-e57b8e8926ec)
 
-3. Rise delay(Rise at 50% of the output)
+5. Rise delay(Rise at 50% of the output)
 
    ![image](https://github.com/user-attachments/assets/870cd1f7-6dcd-4278-a7de-272c2a21778b)
 
     `X0 = The difference between the Rise of Input and output at 50% of x0 values`
+   
      `X0 = 2.211-2.15`
+   
      `X0 = 0.062ns `
 
-4. Fall delay(Fall at 50% of the output)
+7. Fall delay(Fall at 50% of the output)
 
 ![image](https://github.com/user-attachments/assets/bb36db75-3f95-40a9-8e73-4b547e4bd6ab)
 
 
     `X0 = The difference between the Fall of Input and output at 50% of x0 values`
+    
      `X0 = 4.077-4.050`
+     
      `X0 = 0.027ns `
 
 ### Task - 4: To work on Met3 mag file in magic from drc_test folder .
@@ -491,10 +503,9 @@ Laod metal contact file to magic and check if it still has violations.
 
 ![image](https://github.com/user-attachments/assets/a6bf4051-b95c-4af2-a3d8-6b2ca33b8dec)
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-## Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE
+## 5. Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE
 
 ### THEORY
 [📄 Day-1.pdf](Day-1.pdf)
@@ -507,9 +518,9 @@ Laod metal contact file to magic and check if it still has violations.
 Step 1: Open tracks information is in the below directory
      ![image](https://github.com/user-attachments/assets/b1c3352f-1cee-4898-87b4-8f2949f39b9c)
 
-     Inside tracks.info file
+   Inside tracks.info file
      
-     ![image](https://github.com/user-attachments/assets/cf6791be-2b4e-4a76-998a-839cba4d74b5)
+   ![image](https://github.com/user-attachments/assets/cf6791be-2b4e-4a76-998a-839cba4d74b5)
 
 Step 2: Open layout using magic
 command: `magic -T sky130A.tech sky130_inv.mag`
@@ -1279,7 +1290,7 @@ Step 7: To Exit from openroad
  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-## Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA
+## 6. Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA
 
 ### THEORY
 [📄 Day-1.pdf](Day-1.pdf)
@@ -1390,6 +1401,37 @@ The routing is done
 ![image](https://github.com/user-attachments/assets/372f50a4-0198-48b6-8288-29762f79274c)
 
 ![image](https://github.com/user-attachments/assets/2210f777-4beb-4e34-9988-ce1e16ee15f0)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## 7. REFERENCES
+
+   1. Google. SkyWater Open Source PDK. GitHub. Available at:
+
+      https://github.com/google/skywater-pdk
+      
+   2. Nickson Jose. VSD Standard Cell Design. GitHub. Available at:
+
+      https://github.com/nickson-jose/vsdstdcelldesign
+
+   3. NGSpice. Open Source Circuit Simulator. SourceForge. Available at:
+
+       https://sourceforge.net/projects/ngspice/
+
+   4. GitHub. Explore and Discover Open Source Projects. Available at:
+
+      https://github.com/
+
+   5. SkyWater SKY130 PDK Authors. Periphery Rules Documentation . Available at:
+
+      https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## 8. ACKNOWLEDGEMENT
+
+I would like to sincerely thank Mr. Kunal Ghosh, Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd., and Mr. Nickson Jose for their outstanding mentorship and engaging delivery during the DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING workshop. Their depth of knowledge and ability to clearly explain complex concepts made a significant impact on my understanding of physical chip design using OpenLANE and other advanced tools. The workshop was thoughtfully structured and exceptionally informative. I’m truly grateful to both Mr. Ghosh and Mr. Jose for their dedication and for generously sharing their expertise, which made this learning experience both insightful and inspiring
+
 
 
 
