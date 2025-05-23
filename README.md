@@ -278,7 +278,7 @@ Step 3: Generate the layout of the inverter. Open magic in vsdscelldesign folder
 
 ![image](https://github.com/user-attachments/assets/c1c6e552-c76a-4d0c-96e7-1d27c85474de)
 
-  To see if a component is connected clicl 'S' thrice.
+  To see if a component is connected click 'S' thrice.
 
 ![image](https://github.com/user-attachments/assets/20614f1e-9565-44f8-9cf4-02e737b32ef2)
 
@@ -287,7 +287,7 @@ Step 3: Generate the layout of the inverter. Open magic in vsdscelldesign folder
 
 **The Steps to extract spice netlist are:**
 
-Step 1: Enter the command `extract all` in the tckon window of the inverter layout.
+Step 1: Enter the command `extract all` in the tkcon window of the inverter layout.
 
 ![image](https://github.com/user-attachments/assets/7b71f457-7661-4571-93a2-4b003791c0c3)
 
@@ -299,7 +299,7 @@ Step 2: Enter the command `ext2spice cthresh 0 rthresh 0` to convert the extract
 
 ![image](https://github.com/user-attachments/assets/eb9ad189-9b81-421d-89f1-f3ce025f1e65)
 
-Step 3: Open the spice netlist using vim to edit
+Step 3: Open the spice netlist using `vim` to edit
 
 Before change
 
@@ -312,6 +312,7 @@ Before change
 2. To make sure we have correct dimensions of the grid , we run a transient analysis and the values VDD , VSS , Va(Input) is given
    
    The Inv Model
+   
    <img width="448" alt="image" src="https://github.com/user-attachments/assets/9b37e0bb-7455-4c49-af3a-ed13457abb67" />
    
    After all the changes we have the below spice netlist.
@@ -396,10 +397,12 @@ Step 3: For characterization we need 4 parameters rise transition , fall transit
 
 ### Task - 4: To work on Met3 mag file in magic from drc_test folder .
 
-Step 1: After the characterization of the inverter load the wget again to open the magicrc file to locate where the .tech file. We download the lab files from the below directory copy this in the command window as seen below
+Step 1: After the characterization of the inverter load the wget again to open the magicrc file to locate where the .tech file. We download the lab files from the below directory copy this in the command window as seen below.
+
 Lab files: `wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz`
 
 Commad to extract the drc_tests `tar xfz drc_tests.tgz`.
+
 Go to the directory `cd drc_tests.tgz.1`
 
 ![image](https://github.com/user-attachments/assets/fe1374af-9115-4589-9afc-f8aa8cf2bab3)
@@ -421,11 +424,11 @@ Step 2: Open Magic in the drc_test folder using the command `magic -d XR`
 
 ![image](https://github.com/user-attachments/assets/5b34fafa-c30e-4eb0-ab28-f022a750f290)
 
-Step 3: Load the met3.mag file in layout from File(left corener)->open-> choose met3.mag file.
+Step 3: Load the met3.mag file in layout from File(left corner)->open-> choose met3.mag file.
 
 ![image](https://github.com/user-attachments/assets/f7244884-3f26-41a3-93b3-fc21a5dff3b4)
 
-In tckon window `drc why` after selecting a component gives you about the drc information of that component
+In tkcon window `drc why` after selecting a component gives you about the drc information of that component
 
 ![image](https://github.com/user-attachments/assets/dfe7dc2b-3010-4a0f-b3c8-223223e017fe)
 
@@ -739,7 +742,7 @@ Step 1: Invoke the docker command and do the pre runs till synthesis.
 
 `set ::env(SYNTH_SIZING) 1`
 
-![image](https://github.com/user-attachments/assets/e4eab56b-c57e-4894-8ed5-971b88236fc4)
+<img width="581" alt="image" src="https://github.com/user-attachments/assets/379ff9af-ff94-41cf-b714-648da85699e5" />
 
 After synthesis
 
@@ -837,7 +840,7 @@ Same slack as the synthesis
 
 Step 3: To improve the slack we make chages with regard to fan outs by increasing the drive strengths where ever the delay is more and when its driving more number of inputs and we check the sta again if the slack is improved.
 
-1. Commands used:
+Commands used:
 
    1. To report the net `report_net -connections _net number_`  Eg: report_net -connections _11672_
     
@@ -851,43 +854,43 @@ Step 3: To improve the slack we make chages with regard to fan outs by increasin
       Command:
       `sta pre_sta.conf`
 
-   2. Change 1
+   4. Change 1
      
-     ![image](https://github.com/user-attachments/assets/2d6f6112-44f6-44b8-bab0-104775007df8)
+      ![image](https://github.com/user-attachments/assets/2d6f6112-44f6-44b8-bab0-104775007df8)
 
-     Its driving 4 pins so increasig the drive strength is better
+      Its driving 4 pins so increasig the drive strength is better
 
-     ![image](https://github.com/user-attachments/assets/64e4e50b-89f5-4ff1-b847-a73b04acb637)
+      ![image](https://github.com/user-attachments/assets/64e4e50b-89f5-4ff1-b847-a73b04acb637)
 
-     Replacing with 4x:
+      Replacing with 4x:
      
-     ![image](https://github.com/user-attachments/assets/fa878317-66ab-4fd3-b0a0-ec403f0a821d)
+      ![image](https://github.com/user-attachments/assets/fa878317-66ab-4fd3-b0a0-ec403f0a821d)
 
-     RESULTS:
+      RESULTS:
 
-     Change in fanout
+      Change in fanout
 
-     ![image](https://github.com/user-attachments/assets/51aec5eb-71a9-45be-9489-c7447a3de533)
+      ![image](https://github.com/user-attachments/assets/51aec5eb-71a9-45be-9489-c7447a3de533)
 
-     Slack is decreased from the original
+      Slack is decreased from the original
 
-     ![image](https://github.com/user-attachments/assets/617e1dff-252a-4975-8f27-da9c047440d6)
+      ![image](https://github.com/user-attachments/assets/617e1dff-252a-4975-8f27-da9c047440d6)
 
-   3. Change 2
+   5. Change 2
 
       ![image](https://github.com/user-attachments/assets/7fc64cda-f492-42f0-ab7f-e9b956e736d7)
 
-     Replacing with 4x:
+      Replacing with 4x:
 
       ![image](https://github.com/user-attachments/assets/7c837c12-56b6-44a6-909c-c0a268956acb)
 
-     RESULTS:
+      RESULTS:
 
-     Slack is decreased Compared to that last change
+      Slack is decreased Compared to that last change
 
       ![image](https://github.com/user-attachments/assets/f3d3eeab-bd72-4769-9081-e9a1d2b0dd52)
 
-   4. Change 3
+   6. Change 3
   
       ![image](https://github.com/user-attachments/assets/bec7f2a7-adc2-4703-8e62-704621f6548d)
 
@@ -901,7 +904,7 @@ Step 3: To improve the slack we make chages with regard to fan outs by increasin
       
       ![image](https://github.com/user-attachments/assets/70f5d25f-ebf8-443a-87dd-fbbe7b70a62c)
 
-   5. Change 4
+   7. Change 4
         
         ![image](https://github.com/user-attachments/assets/c590fbcc-fe98-4b3c-831c-95e6d45726e9)
 
@@ -920,7 +923,7 @@ Step 3: To improve the slack we make chages with regard to fan outs by increasin
          ![image](https://github.com/user-attachments/assets/5dcf231d-0592-45cc-8ce0-135b90f1739b)
 
 
-    6. Change 5
+   8. Change 5
   
         ![image](https://github.com/user-attachments/assets/f3a29e29-5bd4-4b47-a476-4f8f20e51d82)
    
@@ -938,7 +941,7 @@ Step 3: To improve the slack we make chages with regard to fan outs by increasin
 
          ![image](https://github.com/user-attachments/assets/70391047-58d8-4baf-a6b8-3fbca2e6466b)
 
-    7. Change 6
+   9. Change 6
   
         ![image](https://github.com/user-attachments/assets/1fb67fa7-a72d-44ba-a955-7d355b03568c)
    
@@ -1083,6 +1086,8 @@ For output pin the below is the capacitance as mentioned above in or_cts.tcl in 
 
 ### Task - 10: To analyze Timing analysis with real clocks using OpenSTA
 
+**OPEN ROAD**
+
 **The Steps are as follows:**
 
 Step 1: Open openroad insise openlane docker window.
@@ -1215,9 +1220,9 @@ Step 4: Follow the below steps in openroad ie., enter the command openroad insid
 
       `read_verilog /openLANE_flow/designs/picorv32a/runs/18-05_18-08/results/synthesis/picorv32a.synthesis_cts.v`
 
-   6: Read library for design
+   6.  Read library for design
 
-      `read_liberty $::env(LIB_SYNTH_COMPLETE)`
+   `read_liberty $::env(LIB_SYNTH_COMPLETE)`
 
    7. Link design and library
 
@@ -1231,7 +1236,7 @@ Step 4: Follow the below steps in openroad ie., enter the command openroad insid
 
       `set_propagated_clock [all_clocks]`
 
-   10.  Generate the custom timing report
+  10. Generate the custom timing report
 
       `report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4`
 
@@ -1404,7 +1409,7 @@ Step 2: After running routing there would be two .v files added, we will be usin
 
 Step 3: Invoke openroad in the openlane and perform the following steps
 
-   1. `openroad`
+   1. openroad
 
       ![image](https://github.com/user-attachments/assets/6540c0e2-cbb2-42f3-9363-6f0e471417cd)
 
@@ -1446,7 +1451,7 @@ Step 3: Invoke openroad in the openlane and perform the following steps
       
       `read_spef /openLANE_flow/designs/picorv32a/runs/18-05_18-08/results/routing/picorv32a.spef`
 
-  12.  To report the timing
+  12. To report the timing
 
       `report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4`
 
