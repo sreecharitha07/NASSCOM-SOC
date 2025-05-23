@@ -16,7 +16,6 @@
    - [Lab Tasks](#lab-tasks-1)
 
 4. [Day 3 - DESIGN LIBRARY CELL USING MAGIC LAYOUT AND NGSPICE CHARACTERIZATION](#4-day-3---design-library-cell-using-magic-layout-and-ngspice-characterization)
-   - [Theory](#theory-2)
    - [Lab Tasks](#lab-tasks-2)
 
 5. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#5-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
