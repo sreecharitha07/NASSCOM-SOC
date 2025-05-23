@@ -1,4 +1,4 @@
-# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
+![image](https://github.com/user-attachments/assets/1a0b6b15-7997-4505-972c-ce5c24e03e71)# ***DIGITAL VLSI SOC DESIGN AND PLANNING***
 
 # **Contents**
 
@@ -979,7 +979,9 @@ Pin _15168_ was changed from drive strength 2 to 4. we can see that below
 ![image](https://github.com/user-attachments/assets/e88bf39c-57af-427c-bff8-07e0edb91f47)
 
 
-### Task - 7: To Implement floorplan,placemet,cts(Clock tree synthesis) after fixing the timing and rewriting the verilog file
+### Task - 8: To Implement floorplan,placemet,cts(Clock tree synthesis) after fixing the timing and rewriting the verilog file
+
+**The Steps are as follows:**
 
 Step 1: Invoke docker and overwrite the design
 
@@ -1020,7 +1022,9 @@ Step 6: We can see the .v file in the below directory after cts run
 ![image](https://github.com/user-attachments/assets/b37bc11d-f394-40bf-9282-f90607fb30e0)
 
 
-### Task - 8: To verify CTS
+### Task - 9: To verify CTS
+
+**The Steps are as follows:**
 
 Step 1 : To see how openlane take the procs from ie., the procedure for running a command go to the below directory
 
@@ -1046,6 +1050,378 @@ Inside or_cts.tcl file. Command `less or_cts.tcl`
 ![image](https://github.com/user-attachments/assets/d08d100e-dcbd-417e-99f5-b2a7a5861f2e)
 
 Step 3: Go back to the openlane docker window after running till cts we run the below commands 
+
+   1. To show the current def : `echo $::env(CURRENT_DEF)`
+
+      ![image](https://github.com/user-attachments/assets/bf5da2eb-b17e-4975-b4d6-aff2daa5716a)
+
+  2. To display the branch buffer cells : `echo $::env(CTS_CLOCK_BUFFER_LIST)`
+
+      ![image](https://github.com/user-attachments/assets/d8a6801e-9526-4466-8424-5d7a9eec2809)
+
+  3. To display the Maximum capacitance of the output pin of the clock buffer 16 : `echo $::env(CTS_MAX_CAP)`
+
+     ![image](https://github.com/user-attachments/assets/d9db3053-be9a-42d9-86c1-b139a8d5fb9c)
+
+Step 4: All the paramenters and variables in or_cts.tcl are typical parameters so they can be verified from typical.lib from the below directory
+
+![image](https://github.com/user-attachments/assets/09fe320d-f633-42db-832b-54df22344680)
+
+Inside sky130_fd_sc_hd__typical.lib 
+
+We can see the clk buf 16 cell
+
+![image](https://github.com/user-attachments/assets/be74da53-a303-4d5a-a8d8-597410d54560)
+
+For output pin the below is the capacitance as mentioned above in or_cts.tcl in openroad file
+
+![image](https://github.com/user-attachments/assets/afdb9692-d475-41c2-a94b-dbe1da7d0c7d)
+
+
+### Task - 10: To analyze Timing analysis with real clocks using OpenSTA
+
+**The Steps are as follows:**
+
+Step 1: Open openroad insise openlane docker window.
+
+Command to run OpenROAD tool
+
+`openroad`
+
+![image](https://github.com/user-attachments/assets/c2f050d0-d7ac-4cd4-9100-dd9f4530a3c3)
+
+Step 2: Read lef file 
+
+`read_lef /openLANE_flow/designs/picorv32a/runs/18-05_18-08/tmp/merged.lef`
+
+![image](https://github.com/user-attachments/assets/1d1092df-55b5-4286-9029-4e37d4afd57e)
+
+Step 3: Reading def file
+
+`read_def /openLANE_flow/designs/picorv32a/runs/18-05_18-08/results/cts/picorv32a.cts.def`
+
+![image](https://github.com/user-attachments/assets/f3dce53d-ee70-4a06-a732-c0c4129d9a77)
+
+Step 4: Creating and reading an openroad database 
+
+`write_db pico_cts.db`
+
+`read_db pico_cts.db`
+
+![image](https://github.com/user-attachments/assets/0f752626-2c5c-4180-b540-976ffb53155f)
+
+We can see it is created in the below image
+
+![image](https://github.com/user-attachments/assets/efd92480-c513-45ce-9740-9b43a26ccf2b)
+
+Step 5: Read netlist post CTS
+
+`read_verilog /openLANE_flow/designs/picorv32a/runs/18-05_18-08/results/synthesis/picorv32a.synthesis_cts.v`
+
+![image](https://github.com/user-attachments/assets/96022937-67d1-4817-b964-68a0b29b2b81)
+
+Step 6: Read library for design
+
+`read_liberty $::env(LIB_SYNTH_COMPLETE)`
+
+![image](https://github.com/user-attachments/assets/283753f1-4d53-45f0-a838-3f11c4ef8d16)
+
+Step 7: Read in the custom sdc we created
+
+`read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc`
+
+![image](https://github.com/user-attachments/assets/0a9fa9d1-0448-43ea-aec4-b943383af48a)
+
+Step 8: setting all clocks as propagated clocks
+
+`set_propagated_clock [all_clocks]`
+
+![image](https://github.com/user-attachments/assets/762090f5-c262-4bb8-95d5-f6d60c6244fd)
+
+Step 9: Generate the custom timing report
+
+`report_checks -path_delay min_max -format full_clock_expanded -digits 4`
+
+![image](https://github.com/user-attachments/assets/ea177f43-c9be-4d5e-b661-6178a22a1d16)
+
+Hold slack
+
+![image](https://github.com/user-attachments/assets/585df64d-92b0-49d7-a9ba-fe160ae8383f)
+
+Setup slack
+
+![image](https://github.com/user-attachments/assets/34d21dcb-08fd-4f7d-abf2-a4ae608b8121)
+
+Step 10: To report the skew of slack use the below commands
+
+   `report_clock_skew -hold`
+
+   `report_clock_skew -setup`
+
+   ![image](https://github.com/user-attachments/assets/0812a44e-a7bb-4bdd-8d9f-14b43c90fc21)
+
+Step 11:To exit to Openroad flow
+ `exit`
+
+ 
+### Task - 11: To improve Timing analysis by removing the clock buffer
+
+**The Steps are as follows:**
+
+Performing the below steps in docker window after running cts
+
+Step 1: Check the current .def file used it should be placement def file
+
+`echo $::env(CURRENT_DEF)`
+
+![image](https://github.com/user-attachments/assets/1f66c016-e66a-4f3d-aaea-13c157778f9a)
+
+Step 2: Update the .def file & verify the buffer list if clk_buff_0 is removed.
+
+`set ::env(CURRENT_DEF) directory of placement.def file`
+
+`echo $::env(CTS_CLK_BUFFER_LIST)`
+
+![image](https://github.com/user-attachments/assets/b2ddbb22-8b6c-4793-bfaa-d277784b5fe5)
+
+Step 3: Run cts again `run_cts`
+
+![image](https://github.com/user-attachments/assets/1e104ee0-4396-4882-a998-48e61085cf83)
+
+Step 4: Follow the below steps in openroad ie., enter the command openroad inside the openlane docker terminal after running the above cts command
+
+   1. Command to run OpenROAD tool
+
+      `openroad`
+
+   2. Read lef file 
+
+      `read_lef /openLANE_flow/designs/picorv32a/runs/18-05_18-08/tmp/merged.lef`
+
+   3. Read lef file 
+
+      `read_lef /openLANE_flow/designs/picorv32a/runs/18-05_18-08/tmp/merged.lef`
+
+   4. Creating and reading an openroad database [As its modified write a new file again]
+
+      `write_db pico_cts1.db`
+      
+      `read_db pico_cts1.db`
+
+   5. Read netlist post CTS
+
+      `read_verilog /openLANE_flow/designs/picorv32a/runs/18-05_18-08/results/synthesis/picorv32a.synthesis_cts.v`
+
+   6: Read library for design
+
+      `read_liberty $::env(LIB_SYNTH_COMPLETE)`
+
+   7. Link design and library
+
+      `link_design picorv32a`
+
+   8. Read in the custom sdc we created
+
+      `read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc`
+
+   9. setting all clocks as propagated clocks
+
+      `set_propagated_clock [all_clocks]`
+
+   10.  Generate the custom timing report
+
+      `report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4`
+
+   ![image](https://github.com/user-attachments/assets/923c7950-9ba8-4668-aad4-0395e6d28868)
+
+   RESULTS
+
+   Hold slack
+
+   We observe from the below figure that there is no buf 1 as we removed it from buffer list
+   
+   ![image](https://github.com/user-attachments/assets/e15d1824-06d9-41c9-b6c4-b4140aaec7cd)
+
+   Hold slack is increased from 0.0772 to 0.2456 as the area increased
+
+   ![image](https://github.com/user-attachments/assets/e4f23313-708c-46f4-b07e-acb8665cb8ee)
+
+  Setup Slack
+
+   We observe from the below figure that there is no buf 1 only buf 2,4,6 is there as we removed it from buffer list
+   
+  ![image](https://github.com/user-attachments/assets/f2405536-aa25-4aa2-9394-4f519542917f)
+
+  Setup slack remains the same
+  
+  ![image](https://github.com/user-attachments/assets/9fd83f5c-1659-47dd-9486-f168ef46e3a1)
+
+
+Step 5: The reports for setup and hold
+
+  `report_clock_skew -hold`
+
+   `report_clock_skew -setup`
+
+![image](https://github.com/user-attachments/assets/6197daf1-df88-4e23-9b81-cc8f3c61022f)
+
+Step 6: If we want to add back the buf 1 to the list follow the below
+
+Command : `set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]`
+
+![image](https://github.com/user-attachments/assets/a6c1d541-5095-4d10-bfa3-6910c6ce7730)
+
+Step 7: To Exit from openroad 
+
+ `exit`
+
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA
+
+### THEORY
+[📄 Day-1.pdf](Day-1.pdf)
+
+### LAB TASKS
+
+### PDN(POWER DISTRIBUTION NETWORK)
+
+### Task - 1: Power distribution
+
+**Steps for the pdn are as follows:**
+
+Step 1: In the openlan terminal invoke docker and our runs folder for design
+
+   `docker`
+
+   `./flow.tcl -ineractive`
+
+   `prep -design picorv32a -tag 18-05_18-08` -> dont overwrite as till cts everything is done we can run pdn continuing from cts
+
+   `echo $::env(CURRENT_DEF)` -> to check if the def file is cts. If not we have to update it to cts by using the set command and the directory in which cts def file is located
+
+   ![image](https://github.com/user-attachments/assets/cac05b7a-de1b-4ae6-b2e9-94c146a3300e)
+
+Step 2: Run pdn 
+
+`gen_pdn`
+
+![image](https://github.com/user-attachments/assets/0ede28f2-b762-471a-ab3c-c120936360f7)
+
+Loads the below files
+
+![image](https://github.com/user-attachments/assets/27c36fb3-aaed-4c0d-aaac-12b626de0aa5)
+
+Created the standard cells grids ie., the power and ground for stdcells
+
+![image](https://github.com/user-attachments/assets/14a5c86e-191c-4b19-a657-3b3a54dd526a)
+
+![image](https://github.com/user-attachments/assets/87582d6b-ee51-4aec-9f39-c0d11c091ce8)
+
+Here by using the echo command we can see our .def file is changed from cts to pdn ad pdn is run successfully
+
+![image](https://github.com/user-attachments/assets/fe384b5b-b47f-4d39-bce6-dca0573b86f0)
+
+Step 3: View in Magic
+
+`magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 17-pdn.def`
+
+![image](https://github.com/user-attachments/assets/90d569e0-12dd-48cd-bb92-a95839c2a16d)
+
+Layout of our inv cell. We can see a grid like structure in bluish green color
+
+![image](https://github.com/user-attachments/assets/2163696c-4fee-43b9-89ca-c7dfc81dc4eb)
+
+Vdd and gnd rails can be observed
+
+![image](https://github.com/user-attachments/assets/2927c49c-a8d4-4a8b-a13c-b63df9b9cdeb)
+
+Vdd rail
+
+![image](https://github.com/user-attachments/assets/925bceaf-b681-459f-9467-e3d4f142795c)
+
+Gnd rail
+
+![image](https://github.com/user-attachments/assets/80265ec0-3da3-4211-9860-d21b2ed010fc)
+
+Std cells
+
+![image](https://github.com/user-attachments/assets/099c97ee-bd10-4ee0-8f69-0d1391ddf318)
+
+
+### ROUTING
+
+### Task - 1: Perform routing
+
+**Steps for the routing are as follows:**
+
+Step 1: Switches for routing can be observed in the following directory
+
+![image](https://github.com/user-attachments/assets/f35ffe4e-caaa-4aea-bb95-074d665e0c34)
+
+Inside READmE file
+
+![image](https://github.com/user-attachments/assets/72b723ee-6608-4b13-a4b5-2f7504de4ae9)
+
+Step 2: After generating pdn in openlane docker terminal run routing 
+
+`run_routing`
+
+![image](https://github.com/user-attachments/assets/1c3a1aac-eb10-4662-8e2a-2baaac33b5a7)
+
+![image](https://github.com/user-attachments/assets/90ae4b78-15e0-4a4b-ba79-2456e843bba8)
+
+Step 3: View in magic
+
+`magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../../tmp/merged.lef def read picorv32a.def &`
+
+Directory:
+
+![image](https://github.com/user-attachments/assets/54b39328-97ed-41f7-968e-be8ce97baa5b)
+
+Layout
+
+![image](https://github.com/user-attachments/assets/87bab45b-d390-4517-9521-08fc2a0bb96e)
+
+The routing is done
+
+![image](https://github.com/user-attachments/assets/372f50a4-0198-48b6-8288-29762f79274c)
+
+![image](https://github.com/user-attachments/assets/2210f777-4beb-4e34-9988-ce1e16ee15f0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+   
+
 
 
 
