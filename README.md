@@ -20,16 +20,17 @@
    - [Lab Tasks](#lab-tasks-2)
 
 6. [Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE](#5-day-4---pre-layout-timing-analysis-and-importance-of-good-clock-tree)
+   - [Theory](#theory-3)
    - [Lab Tasks](#lab-tasks-3)
 
-7. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#6-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
+8. [Day 5 - FINAL STEPS FOR RTL2GDS USING TRITONROUTE AND OPENSTA](#6-day-5---final-steps-for-rtl2gds-using-tritonroute-and-opensta)
    - [Lab Tasks](#lab-tasks-4)
 
-8. [Conclusion](#7-conclusion)
+9. [Conclusion](#7-conclusion)
    
-9. [References](#8-references)
+10. [References](#8-references)
     
-10. [Acknowledgement](#9-acknowledgement)
+11. [Acknowledgement](#9-acknowledgement)
 
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -507,6 +508,9 @@ Laod metal contact file to magic and check if it still has violations.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 5. Day 4 - PRE-LAYOUT TIMING ANALYSIS AND IMPORTANCE OF GOOD CLOCK TREE
+
+### THEORY
+[📄 Day-4.pdf](Day-4.pdf)
 
 ### LAB TASKS
 
